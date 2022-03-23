@@ -1,9 +1,9 @@
-import "./App.css";
+import Panel from "./components/Panel";
 
 function App() {
   return (
     <div className="App">
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
+      <Panel status="green" character="あ" />
     </div>
   );
 }
