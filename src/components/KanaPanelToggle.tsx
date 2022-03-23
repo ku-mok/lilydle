@@ -12,7 +12,7 @@ const KanaToggle: React.FC<KanaToggleProps> = (props) => {
   const notSelectedClassname =
     "bg-gray-100 hover:bg-gray-400 active:bg-gray-500";
   return (
-    <div className="flex flex-1" role="group">
+    <div className="flex" role="group">
       <button
         type="button"
         onClick={() => props.onKanaToggle(false)}

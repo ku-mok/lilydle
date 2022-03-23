@@ -3,7 +3,7 @@ import AnswerColumn from "./AnswerColumn";
 export type AnswerHistoryProps = {
   answer: string;
   answers: string[];
-  inputingText: string;
+  inputtedText: string;
   maxAnswerCount: number;
 };
 
@@ -26,7 +26,7 @@ const AnswerHistory: React.FC<AnswerHistoryProps> = (props) => {
         props.answers.length < props.maxAnswerCount && (
           <AnswerColumn
             answer={props.answer}
-            input={props.inputingText}
+            input={props.inputtedText}
             isSubmitted={false}
           />
         )
