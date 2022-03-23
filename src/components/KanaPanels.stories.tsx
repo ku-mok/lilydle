@@ -10,16 +10,16 @@ const Template: Story<KanaPanelsProps> = (args) => <KanaPanels {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
-  isalternate: false,
+  isAlternate: false,
   onClick: (kana) => console.log(kana),
 };
 export const Correct = Template.bind({});
 Correct.args = {
-  isalternate: false,
+  isAlternate: false,
   correctKanas: ["あ", "わ", "ぱ"],
   candidateKanas: ["い", "ぶ"],
 };
 export const Alternate = Template.bind({});
 Alternate.args = {
-  isalternate: true,
+  isAlternate: true,
 };

@@ -4,7 +4,7 @@ export type KanaPanelsProps = {
   onClick: (kana: string) => void;
   correctKanas?: string[];
   candidateKanas?: string[];
-  isalternate: boolean;
+  isAlternate: boolean;
 };
 
 const KanaPanels = ({
@@ -16,9 +16,9 @@ const KanaPanels = ({
     "あかさたなはまやらわいきしちにひみゆりをうくすつぬふむよるんえけせてねへめ-れ-おこそとのほも-ろ";
   const alternateKana =
     "ぁがざだばぱゃゔ--ぃぎじぢびぴゅ---ぅぐずづぶぷょ---ぇげぜでべぺっ---ぉごぞどぼぽー---";
-  const kanaList = props.isalternate ? alternateKana : normalKana;
+  const kanaList = props.isAlternate ? alternateKana : normalKana;
   return (
-    <div className="grid grid-cols-10 gap-1 w-4/12">
+    <div className="grid grid-cols-10 gap-1">
       {[...kanaList].map((kana, index) => {
         const status: PanelProps["status"] = correctKanas.includes(kana)
           ? "correct"
