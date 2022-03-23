@@ -26,7 +26,7 @@ const AnswerColumn: React.FC<AnswerColumnProps> = ({
     status.push("notSubmitted");
   }
   return (
-    <div className="grid grid-cols-10 gap-1 w-4/12">
+    <div className="grid grid-cols-6 gap-1">
       {status.map((status, index) => (
         <Panel
           key={index}
