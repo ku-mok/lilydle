@@ -25,7 +25,7 @@ const AnswerHistory: React.FC<AnswerHistoryProps> = (props) => {
       {
         //未入力
         props.answerHistory.length + 1 < props.maxAnswerCount &&
-          [...Array(props.maxAnswerCount - props.answerHistory.length)].map(
+          [...Array(props.maxAnswerCount - props.answerHistory.length - 1)].map(
             (_, index) => <AnswerColumn key={index} />
           )
       }
