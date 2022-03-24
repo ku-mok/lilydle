@@ -3,7 +3,7 @@ import { useState, useCallback } from "react";
 export const useKanaBoard = () => {
   //  キーボードの入力モードと入力中のテキスト
   const [isAlternate, setIsAlternate] = useState(false);
-  const [inputtedText, setinputtedText] = useState("おたけすなお");
+  const [inputtedText, setinputtedText] = useState("");
   // キーボード操作の処理
   const onKanaToggle = useCallback(
     (isAlternate) => setIsAlternate(isAlternate),
