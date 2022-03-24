@@ -3,16 +3,13 @@ export type GameEndModalProps = {
   answer: string;
   lemonadeUrl: string;
   modalClose: () => void;
-  history: string[];
+  tweetText: string;
   isClear: boolean;
 };
 import { TwitterShareButton, TwitterIcon } from "react-share";
 import ModalLayout from "./ModalLayout";
 
 const GameEndModal: React.FC<GameEndModalProps> = (props) => {
-  const TweetText = `Lilydle ${props.isClear ? props.history.length : "X"}/6
-${props.history.join("\n")}
-#lilyldle #アサルトリリィwordle`;
   return (
     <ModalLayout modalClose={props.modalClose}>
       {props.isClear ? (
@@ -31,7 +28,7 @@ ${props.history.join("\n")}
         <a href={props.lemonadeUrl}>{props.lemonadeUrl}</a>
       </div>
       <div className="text-center">
-        <TwitterShareButton url="http://example.com" title={TweetText}>
+        <TwitterShareButton url="http://example.com" title={props.tweetText}>
           <TwitterIcon size={32} round />
         </TwitterShareButton>
       </div>

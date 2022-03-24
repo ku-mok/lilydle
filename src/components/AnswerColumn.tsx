@@ -1,39 +1,26 @@
 import Panel, { PanelProps } from "./Panel";
 
 export type AnswerColumnProps = {
-  answer: string;
-  input: string;
-  isSubmitted: boolean;
+  judge?: ("correct" | "candidate" | "wrong")[];
+  input?: string;
 };
 
-const AnswerColumn: React.FC<AnswerColumnProps> = ({
-  answer,
-  input,
-  isSubmitted,
-}) => {
-  const status: PanelProps["status"][] = [...input].map((char, index) => {
-    if (!isSubmitted) {
-      return "notSubmitted";
-    } else if (char === answer[index]) {
-      return "correct";
-    } else if (answer.includes(char)) {
-      return "candidate";
-    } else {
-      return "wrong";
-    }
-  });
-  while (status.length < answer.length) {
-    status.push("notSubmitted");
-  }
+const AnswerColumn: React.FC<AnswerColumnProps> = ({ input, judge }) => {
   return (
     <div className="grid grid-cols-6 gap-1">
-      {status.map((status, index) => (
+      {[...(input ? input : "")].map((inputChar, index) => (
         <Panel
           key={index}
-          status={status}
-          character={input.length > index ? input[index] : ""}
+          status={judge ? judge[index] : "notSubmitted"}
+          character={inputChar}
         />
       ))}
+      {
+        //未入力部分
+        [...Array(6 - (input ? input.length : 0))].map((_) => {
+          return <Panel key={_} status="notSubmitted" character="" />;
+        })
+      }
     </div>
   );
 };

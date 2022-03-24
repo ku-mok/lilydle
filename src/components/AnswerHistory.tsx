@@ -1,8 +1,8 @@
+import { AnswerHistoryType } from "../hooks/useWordleAnswer";
 import AnswerColumn from "./AnswerColumn";
 
 export type AnswerHistoryProps = {
-  answer: string;
-  answers: string[];
+  answerHistory: AnswerHistoryType[];
   inputtedText: string;
   maxAnswerCount: number;
 };
@@ -12,37 +12,21 @@ const AnswerHistory: React.FC<AnswerHistoryProps> = (props) => {
     <>
       {
         //送信済みの回答
-        props.answers.map((h) => (
-          <AnswerColumn
-            key={h}
-            answer={props.answer}
-            input={h}
-            isSubmitted={true}
-          />
+        props.answerHistory.map((h) => (
+          <AnswerColumn key={h.input} input={h.input} judge={h.judge} />
         ))
       }
       {
         //入力中の回答
-        props.answers.length < props.maxAnswerCount && (
-          <AnswerColumn
-            answer={props.answer}
-            input={props.inputtedText}
-            isSubmitted={false}
-          />
+        props.answerHistory.length < props.maxAnswerCount && (
+          <AnswerColumn input={props.inputtedText} />
         )
       }
       {
         //未入力
-        props.answers.length + 1 < props.maxAnswerCount &&
-          [...Array(props.maxAnswerCount - props.answers.length)].map(
-            (_, index) => (
-              <AnswerColumn
-                key={index}
-                answer={props.answer}
-                input=""
-                isSubmitted={false}
-              />
-            )
+        props.answerHistory.length + 1 < props.maxAnswerCount &&
+          [...Array(props.maxAnswerCount - props.answerHistory.length)].map(
+            (_, index) => <AnswerColumn key={index} />
           )
       }
     </>

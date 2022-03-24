@@ -10,21 +10,21 @@ const Template: Story<AnswerColumnProps> = (args) => <AnswerColumn {...args} />;
 
 export const OneCorrectOneCandidate = Template.bind({});
 OneCorrectOneCandidate.args = {
-  answer: "おたけすなお",
   input: "すずきちなみ",
-  isSubmitted: true,
+  judge: ["candidate", "wrong", "wrong", "wrong", "correct", "wrong"],
 };
 
 export const AllBlank = Template.bind({});
 AllBlank.args = {
-  answer: "おたけすなお",
   input: "",
-  isSubmitted: false,
 };
 
 export const NotSubmitted = Template.bind({});
 NotSubmitted.args = {
-  answer: "おたけすなお",
   input: "すずきちなみ",
-  isSubmitted: false,
+};
+
+export const Inputting = Template.bind({});
+Inputting.args = {
+  input: "すずきち",
 };

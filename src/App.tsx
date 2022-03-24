@@ -3,9 +3,10 @@ import AnswerHistory from "./components/AnswerHistory";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import InputArea from "./components/InputArea";
-import GameEndModal from "./components/Modal/GameendModal";
+import GameEndModal from "./components/Modal/GameEndModal";
 import { useKanaBoard } from "./hooks/useKanaBoard";
 import { useModal } from "./hooks/useModal";
+import { useWordleAnswer } from "./hooks/useWordleAnswer";
 
 // 解答できる回数
 const MAX_ANSWER_COUNT = 6;
@@ -28,35 +29,23 @@ function App() {
     onBackSpaceClick,
     onKanaClick,
   } = useKanaBoard();
+  // 回答履歴
+  const {
+    answerHistory,
+    judgeAnswer,
+    resetHistory,
+    candidateChars,
+    correctChars,
+  } = useWordleAnswer(answer, answerCandidates);
   // ゲームモード
   const [mode, setMode] = useState<"daily" | "endless">("daily");
   const onModeChangeHandler = useCallback(
     (mode: "daily" | "endless") => {
       setMode(mode);
-      setAnswerHistory([]);
+      resetHistory();
       resestInputtedText;
     },
-    [resestInputtedText]
-  );
-  // 回答履歴
-  const [answerHistory, setAnswerHistory] = useState<string[]>([
-    "あまのそらは",
-    "すずきちなみ",
-  ]);
-  const [candidateKanas, setCandidateKanas] = useState<string[]>(["す"]);
-  const [correctKanas, setCorrectKanas] = useState<string[]>(["な"]);
-  const updateCorrectCandidate = useCallback(
-    (inputtedText: string) => {
-      setCandidateKanas((prevState) => [
-        ...prevState,
-        ...[...inputtedText].filter((input) => answer.includes(input)),
-      ]);
-      setCorrectKanas((prevState) => [
-        ...prevState,
-        ...[...inputtedText].filter((input, index) => answer[index] === input),
-      ]);
-    },
-    [answer]
+    [resestInputtedText, resetHistory]
   );
   // モーダル関連
   const [isClear, setIsClear] = useState(false);
@@ -68,35 +57,12 @@ function App() {
 
   // 解答送信時の処理
   const onSubmitClick = useCallback(() => {
-    // 解答候補に含まれていない場合
-    if (!answerCandidates.includes(inputtedText)) {
-      // TODO: リリィ、CHARM、レギオンで該当しない旨を表示
-      return;
-    } else {
-      // 解答候補である場合は解答履歴とキーボードの色分けを更新する
-      setAnswerHistory([...answerHistory, inputtedText]);
-      updateCorrectCandidate(inputtedText);
-    }
-    // TODO: 正解の場合、正解モーダルを表示する
-    if (inputtedText === answer) {
-      openGameEndModal();
-      setIsClear(true);
-      resestInputtedText();
-      return;
-    }
-    // TODO: 挑戦回数をオーバーした場合、ゲームオーバーモーダルを表示する
-    if (answerHistory.length >= MAX_ANSWER_COUNT) {
-      return;
-    }
+    const judgeResult = judgeAnswer(inputtedText);
     resestInputtedText();
-  }, [
-    answer,
-    answerHistory,
-    inputtedText,
-    openGameEndModal,
-    resestInputtedText,
-    updateCorrectCandidate,
-  ]);
+    // TODO: 解答候補外の場合はエラーを表示する
+    // TODO: 正解の場合、正解モーダルを表示する
+    // TODO: 挑戦回数をオーバーした場合、ゲームオーバーモーダルを表示する
+  }, [inputtedText, judgeAnswer, resestInputtedText]);
 
   return (
     <>
@@ -106,7 +72,7 @@ function App() {
           answerDisplay={answerDisplay}
           lemonadeUrl={lemonadeUrl}
           modalClose={closeGameEndModal}
-          history={answerHistory}
+          tweetText={`${answerDisplay} が${answer}になったよ！`}
           isClear={isClear}
         />
       )}
@@ -115,9 +81,8 @@ function App() {
         <div className="container md:w-8/12 sm:w-full mx-auto">
           <AnswerHistory
             {...{
-              answer,
               inputtedText,
-              answers: answerHistory,
+              answerHistory,
               maxAnswerCount: MAX_ANSWER_COUNT,
             }}
           />
@@ -125,8 +90,8 @@ function App() {
         <InputArea
           {...{
             isAlternate,
-            correctKanas,
-            candidateKanas,
+            correctKanas: correctChars,
+            candidateKanas: candidateChars,
             onKanaToggle,
             onBackSpaceClick,
             onKanaClick,
