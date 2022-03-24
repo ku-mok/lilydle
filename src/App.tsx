@@ -3,7 +3,9 @@ import AnswerHistory from "./components/AnswerHistory";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import InputArea from "./components/InputArea";
+import GameEndModal from "./components/Modal/GameendModal";
 import { useKanaBoard } from "./hooks/useKanaBoard";
+import { useModal } from "./hooks/useModal";
 
 // 解答できる回数
 const MAX_ANSWER_COUNT = 6;
@@ -13,6 +15,10 @@ const answerCandidates = ["おたけすなお", "すずきちなみ", "おぐり
 function App() {
   // 現在の解答
   const [answer, setAnswer] = useState("おたけすなお"); // TODO: ゲームモードに応じてanswerを設定するロジックの実装
+  const [answerDisplay, setAnswerDisplay] = useState("尾竹簾"); // TODO: ゲームモードに応じてanswerを設定するロジックの実装
+  const [lemonadeUrl, setLemonadeUrl] = useState(
+    "https://lemonade.lily.garden/lily/Otake_Sunao"
+  );
   // キーボードの入力関連
   const {
     isAlternate,
@@ -52,6 +58,14 @@ function App() {
     },
     [answer]
   );
+  // モーダル関連
+  const [isClear, setIsClear] = useState(false);
+  const {
+    isModalOpen: isGameEndModalOpen,
+    openModal: openGameEndModal,
+    closeModal: closeGameEndModal,
+  } = useModal();
+
   // 解答送信時の処理
   const onSubmitClick = useCallback(() => {
     // 解答候補に含まれていない場合
@@ -65,6 +79,8 @@ function App() {
     }
     // TODO: 正解の場合、正解モーダルを表示する
     if (inputtedText === answer) {
+      openGameEndModal();
+      setIsClear(true);
       resestInputtedText();
       return;
     }
@@ -77,11 +93,23 @@ function App() {
     answer,
     answerHistory,
     inputtedText,
+    openGameEndModal,
     resestInputtedText,
     updateCorrectCandidate,
   ]);
+
   return (
     <>
+      {isGameEndModalOpen && (
+        <GameEndModal
+          answer={answer}
+          answerDisplay={answerDisplay}
+          lemonadeUrl={lemonadeUrl}
+          modalClose={closeGameEndModal}
+          history={answerHistory}
+          isClear={isClear}
+        />
+      )}
       <Header mode={mode} onModeChange={onModeChangeHandler} />
       <div className="container md:w-3/12 sm:w-11/12 mx-auto">
         <div className="container md:w-8/12 sm:w-full mx-auto">
