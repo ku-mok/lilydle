@@ -8,9 +8,13 @@ export type InputAreaProps = {
   onKanaClick: (kana: string) => void;
   onBackSpaceClick: () => void;
   onSubmitClick: () => void;
+  enterButtonEnabled?: boolean;
 };
 
-const InputArea: React.FC<InputAreaProps> = (props) => {
+const InputArea: React.FC<InputAreaProps> = ({
+  enterButtonEnabled = true,
+  ...props
+}) => {
   const [isAlternate, setIsAlternate] = useState(false);
   const onKanaToggle = (isAlternate: boolean) => setIsAlternate(isAlternate);
   return (
@@ -26,6 +30,7 @@ const InputArea: React.FC<InputAreaProps> = (props) => {
           一文字削除
         </button>
         <button
+          disabled={!enterButtonEnabled}
           onClick={props.onSubmitClick}
           className="bg-slate-300 hover:bg-gray-200 text-black py-2 px-4 rounded border border-gray-800"
         >

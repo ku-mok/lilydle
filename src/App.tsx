@@ -18,6 +18,11 @@ const answerCandidates: AnswerType[] = [
     lemonadeUrl: "https://lemonade.lily.garden/lily/Otake_Sunao",
     display: "尾竹簾",
   },
+  {
+    kana: "ああああああ",
+    lemonadeUrl: "https://lemonade.lily.garden/lily/Otake_Sunao",
+    display: "尾竹簾",
+  },
 ];
 
 function App() {

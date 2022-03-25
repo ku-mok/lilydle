@@ -10,6 +10,7 @@ const ModalLayout: React.FC<ModalLayoutProps> = (props) => {
     <div className="flex justify-between items-start pt-5 pr-5 pb-0 rounded-t">
       <button
         type="button"
+        data-testid="modal-close-button"
         onClick={props.modalClose}
         className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
       >

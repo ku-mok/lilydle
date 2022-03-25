@@ -4,6 +4,7 @@ import { useModal } from "../hooks/useModal";
 import { useWorldeAnswer } from "../hooks/useWordleAnswer";
 import { useWordleAnswerHistory } from "../hooks/useWordleAnswerHistory";
 import GameEndModal from "../modal/GameEndModal";
+import NonCandidateModal from "../modal/NonCandidateModal";
 import { AnswerType } from "../types/AnswerType";
 import GameModeSelector from "../uiParts/GameModeSelector";
 import AnswerHistory from "./AnswerHistory";
@@ -12,6 +13,20 @@ import InputArea from "./InputArea";
 const GameBoard = (props: { answerCandidates: AnswerType[] }) => {
   // ゲームモード
   const [mode, setMode] = useState<"daily" | "endless">("daily");
+  // ゲームの状態
+  const [isClear, setIsClear] = useState(false);
+  const [isKeyboardActive, setIsKeyboardactive] = useState(true);
+  // モーダル関連
+  const {
+    isModalOpen: isGameEndModalOpen,
+    openModal: openGameEndModal,
+    closeModal: closeGameEndModal,
+  } = useModal();
+  const {
+    isModalOpen: isNonCandidateModalOpen,
+    openModal: openNonCandidateModal,
+    closeModal: closeNonCandidateModal,
+  } = useModal();
   // 現在の解答
   const answer = useWorldeAnswer(props.answerCandidates, mode);
   // 回答履歴
@@ -27,7 +42,7 @@ const GameBoard = (props: { answerCandidates: AnswerType[] }) => {
   );
   // キーボードの入力関連
   const { inputtedText, resestInputtedText, onBackSpaceClick, onKanaClick } =
-    useKanaBoard(6);
+    useKanaBoard(6, isKeyboardActive);
   // モード変更時の処理
   const onModeChangeHandler = useCallback(
     (mode: "daily" | "endless") => {
@@ -40,18 +55,35 @@ const GameBoard = (props: { answerCandidates: AnswerType[] }) => {
   // 解答送信時の処理
   const onSubmitClick = useCallback(() => {
     const judgeResult = judgeAnswer(inputtedText);
-    resestInputtedText();
-    // TODO: 解答候補外の場合はエラーを表示する
-    // TODO: 正解の場合、正解モーダルを表示する
-    // TODO: 挑戦回数をオーバーした場合、ゲームオーバーモーダルを表示する
-  }, [inputtedText, judgeAnswer, resestInputtedText]);
-  // モーダル関連
-  const [isClear, setIsClear] = useState(false);
-  const {
-    isModalOpen: isGameEndModalOpen,
-    openModal: openGameEndModal,
-    closeModal: closeGameEndModal,
-  } = useModal();
+    switch (judgeResult) {
+      case "correct":
+        resestInputtedText();
+        setIsClear(true);
+        setIsKeyboardactive(false);
+        openGameEndModal();
+        break;
+      case "incorrect":
+        resestInputtedText();
+        if (answerHistory.length === 5) {
+          resestInputtedText();
+          setIsClear(false);
+          setIsKeyboardactive(false);
+          openGameEndModal();
+        }
+        break;
+      case "not-candidate":
+        resestInputtedText();
+        openNonCandidateModal();
+        break;
+    }
+  }, [
+    answerHistory.length,
+    inputtedText,
+    judgeAnswer,
+    openGameEndModal,
+    openNonCandidateModal,
+    resestInputtedText,
+  ]);
   return (
     <>
       {isGameEndModalOpen && (
@@ -61,6 +93,9 @@ const GameBoard = (props: { answerCandidates: AnswerType[] }) => {
           answerHistory={answerHistory}
           isClear={isClear}
         />
+      )}
+      {isNonCandidateModalOpen && (
+        <NonCandidateModal modalClose={closeNonCandidateModal} />
       )}
       <GameModeSelector mode={mode} onModeChange={onModeChangeHandler} />
       <div className="container md:w-3/12 sm:w-11/12 mx-auto">
@@ -72,6 +107,7 @@ const GameBoard = (props: { answerCandidates: AnswerType[] }) => {
           />
         </div>
         <InputArea
+          enterButtonEnabled={inputtedText.length === 6}
           candidateKanas={candidateChars}
           correctKanas={correctChars}
           onKanaClick={onKanaClick}

@@ -20,17 +20,25 @@ const answerCandidates: AnswerType[] = [
     lemonadeUrl: "https://lemonade.lily.garden/lily/Otake_Sunao",
     display: "尾竹簾",
   },
+  {
+    kana: "ああああああ",
+    lemonadeUrl: "https://lemonade.lily.garden/lily/Otake_Sunao",
+    display: "尾竹簾",
+  },
 ];
-
 // 解答を固定するためにuseWorldeAnswerをモックする
 jest.mock("../hooks/useWordleAnswer");
 const mockUseWorldeAnswer = useWorldeAnswer as jest.Mock;
 mockUseWorldeAnswer.mockImplementation(() => ({
-  answerKana: "おたけすなお",
+  kana: "おたけすなお",
   lemonadeUrl: "https://lemonade.lily.garden/lily/Otake_Sunao",
-  answerDisplay: "尾竹簾",
+  display: "尾竹簾",
 }));
+
 describe("入力", () => {
+  beforeEach(() => {
+    mockUseWorldeAnswer.mockClear();
+  });
   it("can input character with screen keyboard", async () => {
     render(<GameBoard answerCandidates={answerCandidates} />);
     // 初期状態ではキーボードの文字のみ
@@ -59,5 +67,118 @@ describe("入力", () => {
     await userEvent.click(screen.getByText("お"));
     await userEvent.click(screen.getByText("か"));
     await userEvent.click(screen.getByText("き"));
+  });
+});
+
+describe("正誤判定", () => {
+  beforeEach(() => {
+    mockUseWorldeAnswer.mockClear();
+  });
+
+  it("disable enter button for less than 6 chars", async () => {
+    render(<GameBoard answerCandidates={answerCandidates} />);
+    expect(screen.getByText("決定")).toBeDisabled();
+    await userEvent.click(screen.getByText("あ"));
+    await userEvent.click(screen.getByText("い"));
+    await userEvent.click(screen.getByText("う"));
+    expect(screen.getByText("決定")).toBeDisabled();
+    await userEvent.click(screen.getByText("え"));
+    await userEvent.click(screen.getByText("お"));
+    await userEvent.click(screen.getByText("か"));
+    await userEvent.click(screen.getByText("き"));
+    expect(screen.getByText("決定")).toBeEnabled();
+  });
+  it("push answer history for candidate words", async () => {
+    render(<GameBoard answerCandidates={answerCandidates} />);
+    await userEvent.click(screen.getByText("す"));
+    await userEvent.click(screen.getByText("濁音・拗音・記号"));
+    await userEvent.click(screen.getByText("ず"));
+    await userEvent.click(screen.getByText("通常の50音"));
+    await userEvent.click(screen.getByText("き"));
+    await userEvent.click(screen.getByText("ち"));
+    await userEvent.click(screen.getByText("な"));
+    await userEvent.click(screen.getByText("み"));
+    await userEvent.click(screen.getByText("決定"));
+    expect(screen.getAllByText("す")[0].parentNode).toHaveClass(
+      "bg-yellow-500"
+    );
+    expect(screen.getAllByText("ず")[0].parentNode).toHaveClass("bg-gray-500");
+    expect(screen.getAllByText("す").length).toBe(2);
+  });
+  it("show correct modal", async () => {
+    render(<GameBoard answerCandidates={answerCandidates} />);
+    await userEvent.click(screen.getByText("お"));
+    await userEvent.click(screen.getByText("た"));
+    await userEvent.click(screen.getByText("け"));
+    await userEvent.click(screen.getByText("す"));
+    await userEvent.click(screen.getByText("な"));
+    await userEvent.click(screen.getAllByText("お").slice(-1)[0]);
+    await userEvent.click(screen.getByText("決定"));
+    expect(screen.getByText("Clear!")).toBeInTheDocument();
+  });
+  it("cannot input after clear", async () => {
+    render(<GameBoard answerCandidates={answerCandidates} />);
+    await userEvent.click(screen.getByText("お"));
+    await userEvent.click(screen.getByText("た"));
+    await userEvent.click(screen.getByText("け"));
+    await userEvent.click(screen.getByText("す"));
+    await userEvent.click(screen.getByText("な"));
+    await userEvent.click(screen.getAllByText("お").slice(-1)[0]);
+    await userEvent.click(screen.getByText("決定"));
+    await userEvent.click(screen.getByTestId("modal-close-button"));
+    await userEvent.click(screen.getAllByText("お").slice(-1)[0]);
+    expect(screen.getAllByText("お").length).toBe(3);
+  });
+  it("show faild modal", async () => {
+    render(<GameBoard answerCandidates={answerCandidates} />);
+    for (let i = 0; i < 6; i++) {
+      await userEvent.click(screen.getAllByText("す").slice(-1)[0]);
+      await userEvent.click(screen.getByText("濁音・拗音・記号"));
+      await userEvent.click(screen.getAllByText("ず").slice(-1)[0]);
+      await userEvent.click(screen.getByText("通常の50音"));
+      await userEvent.click(screen.getAllByText("き").slice(-1)[0]);
+      await userEvent.click(screen.getAllByText("ち").slice(-1)[0]);
+      await userEvent.click(screen.getAllByText("な").slice(-1)[0]);
+      await userEvent.click(screen.getAllByText("み").slice(-1)[0]);
+      await userEvent.click(screen.getAllByText("決定").slice(-1)[0]);
+    }
+    expect(screen.getByText("Failed...")).toBeInTheDocument();
+  });
+  it("cannot input after failed", async () => {
+    render(<GameBoard answerCandidates={answerCandidates} />);
+    for (let i = 0; i < 6; i++) {
+      await userEvent.click(screen.getAllByText("す").slice(-1)[0]);
+      await userEvent.click(screen.getByText("濁音・拗音・記号"));
+      await userEvent.click(screen.getAllByText("ず").slice(-1)[0]);
+      await userEvent.click(screen.getByText("通常の50音"));
+      await userEvent.click(screen.getAllByText("き").slice(-1)[0]);
+      await userEvent.click(screen.getAllByText("ち").slice(-1)[0]);
+      await userEvent.click(screen.getAllByText("な").slice(-1)[0]);
+      await userEvent.click(screen.getAllByText("み").slice(-1)[0]);
+      await userEvent.click(screen.getAllByText("決定").slice(-1)[0]);
+    }
+    await userEvent.click(screen.getAllByText("す").slice(-1)[0]);
+    await userEvent.click(screen.getByText("濁音・拗音・記号"));
+    await userEvent.click(screen.getAllByText("ず").slice(-1)[0]);
+    await userEvent.click(screen.getByText("通常の50音"));
+    await userEvent.click(screen.getAllByText("き").slice(-1)[0]);
+    await userEvent.click(screen.getAllByText("ち").slice(-1)[0]);
+    await userEvent.click(screen.getAllByText("な").slice(-1)[0]);
+    await userEvent.click(screen.getAllByText("み").slice(-1)[0]);
+    await userEvent.click(screen.getAllByText("決定").slice(-1)[0]);
+    expect(screen.getAllByText("ち").length).toBe(7);
+  });
+  it("show non-candidate modal", async () => {
+    render(<GameBoard answerCandidates={answerCandidates} />);
+    await userEvent.click(screen.getByText("あ"));
+    await userEvent.click(screen.getByText("い"));
+    await userEvent.click(screen.getByText("う"));
+    await userEvent.click(screen.getByText("え"));
+    await userEvent.click(screen.getByText("お"));
+    await userEvent.click(screen.getByText("か"));
+    await userEvent.click(screen.getByText("決定"));
+    expect(
+      screen.getByText("リリィ、CHARM、レギオンの名前ではありません")
+    ).toBeInTheDocument();
   });
 });

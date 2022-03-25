@@ -4,7 +4,7 @@ import { useKanaBoard } from "./useKanaBoard";
 let result: RenderResult<ReturnType<typeof useKanaBoard>>;
 describe("キーボードの入力の処理", () => {
   beforeEach(() => {
-    result = renderHook(() => useKanaBoard(6)).result;
+    result = renderHook(() => useKanaBoard(6, true)).result;
   });
   it("set default text as blank", () => {
     expect(result.current.inputtedText).toBe("");
