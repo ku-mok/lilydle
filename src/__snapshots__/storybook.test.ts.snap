@@ -16,6 +16,7 @@ Array [
         >
           <button
             className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
+            data-testid="modal-close-button"
             type="button"
           >
             <svg
@@ -120,6 +121,7 @@ Array [
         >
           <button
             className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
+            data-testid="modal-close-button"
             type="button"
           >
             <svg
@@ -1670,6 +1672,30 @@ Array [
     </p>
   </div>,
 ]
+`;
+
+exports[`Storyshots Ui Parts/Header Daily 1`] = `
+<nav
+  className="bg-slate-200 p-3"
+>
+  <div
+    className="text-4xl text-bold text-center mb-4"
+  >
+    LilyDle
+  </div>
+</nav>
+`;
+
+exports[`Storyshots Ui Parts/Header Endless 1`] = `
+<nav
+  className="bg-slate-200 p-3"
+>
+  <div
+    className="text-4xl text-bold text-center mb-4"
+  >
+    LilyDle
+  </div>
+</nav>
 `;
 
 exports[`Storyshots Ui Parts/Kana Panel Toggle Alternate 1`] = `
