@@ -72,7 +72,7 @@ function App() {
           answerDisplay={answerDisplay}
           lemonadeUrl={lemonadeUrl}
           modalClose={closeGameEndModal}
-          tweetText={`${answerDisplay} が${answer}になったよ！`}
+          answerHistory={answerHistory}
           isClear={isClear}
         />
       )}
