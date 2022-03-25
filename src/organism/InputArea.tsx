@@ -1,25 +1,23 @@
+import { useState } from "react";
 import KanaPanels from "../uiParts/KanaPanels";
 import KanaToggle from "../uiParts/KanaPanelToggle";
 
 export type InputAreaProps = {
-  isAlternate: boolean;
   candidateKanas: string[];
   correctKanas: string[];
-  onKanaToggle: (isAlternate: boolean) => void;
   onKanaClick: (kana: string) => void;
   onBackSpaceClick: () => void;
   onSubmitClick: () => void;
 };
 
 const InputArea: React.FC<InputAreaProps> = (props) => {
+  const [isAlternate, setIsAlternate] = useState(false);
+  const onKanaToggle = (isAlternate: boolean) => setIsAlternate(isAlternate);
   return (
     <>
       <div className="mt-4 mb-4 flex gap-4">
         <div className="flex-1">
-          <KanaToggle
-            isAlternate={props.isAlternate}
-            onKanaToggle={props.onKanaToggle}
-          />
+          <KanaToggle isAlternate={isAlternate} onKanaToggle={onKanaToggle} />
         </div>
         <button
           onClick={props.onBackSpaceClick}
@@ -37,7 +35,7 @@ const InputArea: React.FC<InputAreaProps> = (props) => {
       <KanaPanels
         correctKanas={props.correctKanas}
         candidateKanas={props.candidateKanas}
-        isAlternate={props.isAlternate}
+        isAlternate={isAlternate}
         onClick={props.onKanaClick}
       />
     </>
