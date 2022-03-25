@@ -1,21 +1,18 @@
-import KanaPanelToggle, { KanaPanelToggleProps } from "./KanaPanelToggle";
-import { Story, Meta } from "@storybook/react";
+import KanaPanelToggle from "./KanaPanelToggle";
+import { ComponentMeta, ComponentStoryObj } from "@storybook/react";
 
 export default {
   component: KanaPanelToggle,
-  title: "KanaPanelToggle",
-} as Meta;
+} as ComponentMeta<typeof KanaPanelToggle>;
 
-const Template: Story<KanaPanelToggleProps> = (args) => (
-  <KanaPanelToggle {...args} />
-);
-
-export const Default = Template.bind({});
-Default.args = {
-  isAlternate: false,
+export const Default: ComponentStoryObj<typeof KanaPanelToggle> = {
+  args: {
+    isAlternate: false,
+  },
 };
 
-export const Alternate = Template.bind({});
-Alternate.args = {
-  isAlternate: true,
+export const Alternate: ComponentStoryObj<typeof KanaPanelToggle> = {
+  args: {
+    isAlternate: true,
+  },
 };

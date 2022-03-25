@@ -1,4 +1,4 @@
-import Panel, { PanelProps } from "./Panel";
+import Panel from "./Panel";
 
 export type AnswerColumnProps = {
   judge?: ("correct" | "candidate" | "wrong")[];
@@ -17,8 +17,8 @@ const AnswerColumn: React.FC<AnswerColumnProps> = ({ input, judge }) => {
       ))}
       {
         //未入力部分
-        [...Array(6 - (input ? input.length : 0))].map((_) => {
-          return <Panel key={_} status="notSubmitted" character="" />;
+        [...Array(6 - (input ? input.length : 0))].map((_, index) => {
+          return <Panel key={index} status="notSubmitted" character="" />;
         })
       }
     </div>

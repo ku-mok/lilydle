@@ -1,25 +1,32 @@
-import KanaPanels, { KanaPanelsProps } from "./KanaPanels";
-import { Story, Meta } from "@storybook/react";
+import KanaPanels from "./KanaPanels";
+import { ComponentMeta, ComponentStoryObj } from "@storybook/react";
 
 export default {
   component: KanaPanels,
-  title: "KanaPanels",
-} as Meta;
+} as ComponentMeta<typeof KanaPanels>;
 
-const Template: Story<KanaPanelsProps> = (args) => <KanaPanels {...args} />;
+export const Default: ComponentStoryObj<typeof KanaPanels> = {
+  args: {
+    isAlternate: false,
+  },
+};
+export const Alternate: ComponentStoryObj<typeof KanaPanels> = {
+  args: {
+    isAlternate: true,
+  },
+};
+export const CorrectCandidate: ComponentStoryObj<typeof KanaPanels> = {
+  args: {
+    isAlternate: false,
+    correctKanas: ["あ", "わ", "ぱ"],
+    candidateKanas: ["い", "ぶ"],
+  },
+};
 
-export const Default = Template.bind({});
-Default.args = {
-  isAlternate: false,
-  onClick: (kana) => console.log(kana),
-};
-export const Correct = Template.bind({});
-Correct.args = {
-  isAlternate: false,
-  correctKanas: ["あ", "わ", "ぱ"],
-  candidateKanas: ["い", "ぶ"],
-};
-export const Alternate = Template.bind({});
-Alternate.args = {
-  isAlternate: true,
+export const CorrectCandidateAlternate: ComponentStoryObj<typeof KanaPanels> = {
+  args: {
+    isAlternate: true,
+    correctKanas: ["あ", "わ", "ぱ"],
+    candidateKanas: ["い", "ぶ"],
+  },
 };

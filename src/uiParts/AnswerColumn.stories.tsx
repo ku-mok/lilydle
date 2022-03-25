@@ -1,30 +1,29 @@
-import AnswerColumn, { AnswerColumnProps } from "./AnswerColumn";
-import { Story, Meta } from "@storybook/react";
+import AnswerColumn from "./AnswerColumn";
+import { ComponentMeta, ComponentStoryObj } from "@storybook/react";
 
 export default {
   component: AnswerColumn,
-  title: "AnswerColumn",
-} as Meta;
+} as ComponentMeta<typeof AnswerColumn>;
 
-const Template: Story<AnswerColumnProps> = (args) => <AnswerColumn {...args} />;
-
-export const OneCorrectOneCandidate = Template.bind({});
-OneCorrectOneCandidate.args = {
-  input: "すずきちなみ",
-  judge: ["candidate", "wrong", "wrong", "wrong", "correct", "wrong"],
+export const OneCorrectOneCandidate: ComponentStoryObj<typeof AnswerColumn> = {
+  args: {
+    input: "すずきちなみ",
+    judge: ["candidate", "wrong", "wrong", "wrong", "correct", "wrong"],
+  },
+};
+export const AllBlank: ComponentStoryObj<typeof AnswerColumn> = {
+  args: {
+    input: "",
+  },
+};
+export const NotSubmitted: ComponentStoryObj<typeof AnswerColumn> = {
+  args: {
+    input: "すずきちなみ",
+  },
 };
 
-export const AllBlank = Template.bind({});
-AllBlank.args = {
-  input: "",
-};
-
-export const NotSubmitted = Template.bind({});
-NotSubmitted.args = {
-  input: "すずきちなみ",
-};
-
-export const Inputting = Template.bind({});
-Inputting.args = {
-  input: "すずきち",
+export const Inputting: ComponentStoryObj<typeof AnswerColumn> = {
+  args: {
+    input: "すずきちなみ",
+  },
 };
