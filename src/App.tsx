@@ -1,9 +1,9 @@
 import { useCallback, useState } from "react";
-import AnswerHistory from "./components/AnswerHistory";
-import Footer from "./components/Footer";
-import Header from "./components/Header";
-import InputArea from "./components/InputArea";
-import GameEndModal from "./Modal/GameEndModal";
+import AnswerHistory from "./organism/AnswerHistory";
+import Footer from "./organism/Footer";
+import Header from "./organism/Header";
+import InputArea from "./organism/InputArea";
+import GameEndModal from "./modal/GameEndModal";
 import { useKanaBoard } from "./hooks/useKanaBoard";
 import { useModal } from "./hooks/useModal";
 import { useWordleAnswer } from "./hooks/useWordleAnswer";

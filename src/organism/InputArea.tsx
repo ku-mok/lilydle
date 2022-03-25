@@ -1,5 +1,5 @@
-import KanaPanels from "./KanaPanels";
-import KanaToggle from "./KanaPanelToggle";
+import KanaPanels from "../uiParts/KanaPanels";
+import KanaToggle from "../uiParts/KanaPanelToggle";
 
 export type InputAreaProps = {
   isAlternate: boolean;

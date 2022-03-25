@@ -1,5 +1,5 @@
 import { AnswerHistoryType } from "../hooks/useWordleAnswer";
-import AnswerColumn from "./AnswerColumn";
+import AnswerColumn from "../uiParts/AnswerColumn";
 
 export type AnswerHistoryProps = {
   answerHistory: AnswerHistoryType[];
