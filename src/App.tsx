@@ -3,7 +3,7 @@ import AnswerHistory from "./components/AnswerHistory";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import InputArea from "./components/InputArea";
-import GameEndModal from "./components/Modal/GameEndModal";
+import GameEndModal from "./Modal/GameEndModal";
 import { useKanaBoard } from "./hooks/useKanaBoard";
 import { useModal } from "./hooks/useModal";
 import { useWordleAnswer } from "./hooks/useWordleAnswer";
