@@ -1,4 +1,4 @@
-import { AnswerHistoryType } from "../hooks/useWordleAnswer";
+import { AnswerHistoryType } from "../hooks/useWordleAnswerHistory";
 import AnswerRow from "../uiParts/AnswerRow";
 
 export type AnswerHistoryProps = {

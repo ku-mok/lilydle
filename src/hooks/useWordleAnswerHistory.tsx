@@ -4,7 +4,10 @@ export type AnswerHistoryType = {
   input: string;
   judge: ("correct" | "candidate" | "wrong")[];
 };
-export const useWordleAnswer = (answer: string, answerCandidates: string[]) => {
+export const useWordleAnswerHistory = (
+  answer: string,
+  answerCandidates: string[]
+) => {
   // 解答履歴
   const [answerHistory, setAnswerHistory] = useState<AnswerHistoryType[]>([]);
   const resetHistory = useCallback(() => {

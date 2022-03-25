@@ -1,4 +1,4 @@
-import { AnswerHistoryType } from "../hooks/useWordleAnswer";
+import { AnswerHistoryType } from "../hooks/useWordleAnswerHistory";
 
 export function answerHistoryToTweet(
   answerHistory: AnswerHistoryType[]

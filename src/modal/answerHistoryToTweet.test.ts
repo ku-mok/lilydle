@@ -1,4 +1,4 @@
-import { AnswerHistoryType } from "../hooks/useWordleAnswer";
+import { AnswerHistoryType } from "../hooks/useWordleAnswerHistory";
 import { answerHistoryToTweet } from "./answerHistoryToTweet";
 it("convert answer history to Tweet Text", () => {
   const input: AnswerHistoryType[] = [

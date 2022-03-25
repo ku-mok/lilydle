@@ -7,9 +7,11 @@ export default {
 
 export const Clear: ComponentStoryObj<typeof GameEndModal> = {
   args: {
-    answerDisplay: "尾竹廉",
-    answer: "おたけすなお",
-    lemonadeUrl: "https://lemonade.lily.garden/lily/Otake_Sunao",
+    answer: {
+      kana: "おたけすなお",
+      lemonadeUrl: "https://lemonade.lily.garden/lily/Otake_Sunao",
+      display: "尾竹簾",
+    },
     isClear: true,
     answerHistory: [
       {

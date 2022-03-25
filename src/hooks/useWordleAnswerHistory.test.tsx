@@ -1,12 +1,14 @@
 import { RenderResult, renderHook, act } from "@testing-library/react-hooks";
-import { useWordleAnswer } from "./useWordleAnswer";
+import { useWordleAnswerHistory } from "./useWordleAnswerHistory";
 
-let result: RenderResult<ReturnType<typeof useWordleAnswer>>;
+let result: RenderResult<ReturnType<typeof useWordleAnswerHistory>>;
 describe("入力に対する正誤判定", () => {
   beforeEach(() => {
     const answer = "おたけすなお";
     const answerCandidates = ["おたけすなお", "すずきちなみ", "おぐりひだか"];
-    result = renderHook(() => useWordleAnswer(answer, answerCandidates)).result;
+    result = renderHook(() =>
+      useWordleAnswerHistory(answer, answerCandidates)
+    ).result;
   });
   it("judge answer correct or not", () => {
     act(() => {
@@ -25,7 +27,9 @@ describe("解答履歴", () => {
   beforeEach(() => {
     const answer = "おたけすなお";
     const answerCandidates = ["おたけすなお", "すずきちなみ", "おぐりひだか"];
-    result = renderHook(() => useWordleAnswer(answer, answerCandidates)).result;
+    result = renderHook(() =>
+      useWordleAnswerHistory(answer, answerCandidates)
+    ).result;
   });
   it("initial answer history is blank", () => {
     expect(result.current.answerHistory.length).toEqual(0);
@@ -93,7 +97,9 @@ describe("文字履歴", () => {
   beforeEach(() => {
     const answer = "おたけすなお";
     const answerCandidates = ["おたけすなお", "すずきちなみ", "おぐりひだか"];
-    result = renderHook(() => useWordleAnswer(answer, answerCandidates)).result;
+    result = renderHook(() =>
+      useWordleAnswerHistory(answer, answerCandidates)
+    ).result;
   });
   it("store candidate chars", () => {
     const input = "すずきちなみ";
