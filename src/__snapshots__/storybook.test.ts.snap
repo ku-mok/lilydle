@@ -1,5 +1,213 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Storyshots Modal/Game End Modal Clear 1`] = `
+Array [
+  <div
+    className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
+  >
+    <div
+      className="relative w-auto mx-auto"
+    >
+      <div
+        className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none"
+      >
+        <div
+          className="flex justify-between items-start pt-5 pr-5 pb-0 rounded-t"
+        >
+          <button
+            className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
+            type="button"
+          >
+            <svg
+              className="w-5 h-5"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clipRule="evenodd"
+                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                fillRule="evenodd"
+              />
+            </svg>
+          </button>
+        </div>
+        <div
+          className="relative p-3 flex-auto"
+        >
+          <div
+            className="text-3xl text-green-700 font-bold text-center mb-4"
+          >
+            Clear!
+          </div>
+          <div
+            className="text-bold text-2xl text-center mb-4"
+          >
+            尾竹廉
+             (
+            おたけすなお
+            )
+          </div>
+          <div
+            className="text-center mb-4"
+          >
+            <a
+              href="https://lemonade.lily.garden/lily/Otake_Sunao"
+            >
+              https://lemonade.lily.garden/lily/Otake_Sunao
+            </a>
+          </div>
+          <div
+            className="text-center"
+          >
+            <button
+              aria-label="twitter"
+              className="react-share__ShareButton"
+              onClick={[Function]}
+              style={
+                Object {
+                  "backgroundColor": "transparent",
+                  "border": "none",
+                  "color": "inherit",
+                  "cursor": "pointer",
+                  "font": "inherit",
+                  "padding": 0,
+                }
+              }
+            >
+              <svg
+                height={32}
+                viewBox="0 0 64 64"
+                width={32}
+              >
+                <circle
+                  cx="32"
+                  cy="32"
+                  fill="#00aced"
+                  r="31"
+                  style={Object {}}
+                />
+                <path
+                  d="M48,22.1c-1.2,0.5-2.4,0.9-3.8,1c1.4-0.8,2.4-2.1,2.9-3.6c-1.3,0.8-2.7,1.3-4.2,1.6 C41.7,19.8,40,19,38.2,19c-3.6,0-6.6,2.9-6.6,6.6c0,0.5,0.1,1,0.2,1.5c-5.5-0.3-10.3-2.9-13.5-6.9c-0.6,1-0.9,2.1-0.9,3.3 c0,2.3,1.2,4.3,2.9,5.5c-1.1,0-2.1-0.3-3-0.8c0,0,0,0.1,0,0.1c0,3.2,2.3,5.8,5.3,6.4c-0.6,0.1-1.1,0.2-1.7,0.2c-0.4,0-0.8,0-1.2-0.1 c0.8,2.6,3.3,4.5,6.1,4.6c-2.2,1.8-5.1,2.8-8.2,2.8c-0.5,0-1.1,0-1.6-0.1c2.9,1.9,6.4,2.9,10.1,2.9c12.1,0,18.7-10,18.7-18.7 c0-0.3,0-0.6,0-0.8C46,24.5,47.1,23.4,48,22.1z"
+                  fill="white"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    className="opacity-25 fixed inset-0 z-40 bg-black"
+  />,
+]
+`;
+
+exports[`Storyshots Modal/Game End Modal Failed 1`] = `
+Array [
+  <div
+    className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
+  >
+    <div
+      className="relative w-auto mx-auto"
+    >
+      <div
+        className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none"
+      >
+        <div
+          className="flex justify-between items-start pt-5 pr-5 pb-0 rounded-t"
+        >
+          <button
+            className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
+            type="button"
+          >
+            <svg
+              className="w-5 h-5"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clipRule="evenodd"
+                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                fillRule="evenodd"
+              />
+            </svg>
+          </button>
+        </div>
+        <div
+          className="relative p-3 flex-auto"
+        >
+          <div
+            className="text-3xl text-red-700 font-bold text-center mb-4"
+          >
+            Failed...
+          </div>
+          <div
+            className="text-bold text-2xl text-center mb-4"
+          >
+            尾竹廉
+             (
+            おたけすなお
+            )
+          </div>
+          <div
+            className="text-center mb-4"
+          >
+            <a
+              href="https://lemonade.lily.garden/lily/Otake_Sunao"
+            >
+              https://lemonade.lily.garden/lily/Otake_Sunao
+            </a>
+          </div>
+          <div
+            className="text-center"
+          >
+            <button
+              aria-label="twitter"
+              className="react-share__ShareButton"
+              onClick={[Function]}
+              style={
+                Object {
+                  "backgroundColor": "transparent",
+                  "border": "none",
+                  "color": "inherit",
+                  "cursor": "pointer",
+                  "font": "inherit",
+                  "padding": 0,
+                }
+              }
+            >
+              <svg
+                height={32}
+                viewBox="0 0 64 64"
+                width={32}
+              >
+                <circle
+                  cx="32"
+                  cy="32"
+                  fill="#00aced"
+                  r="31"
+                  style={Object {}}
+                />
+                <path
+                  d="M48,22.1c-1.2,0.5-2.4,0.9-3.8,1c1.4-0.8,2.4-2.1,2.9-3.6c-1.3,0.8-2.7,1.3-4.2,1.6 C41.7,19.8,40,19,38.2,19c-3.6,0-6.6,2.9-6.6,6.6c0,0.5,0.1,1,0.2,1.5c-5.5-0.3-10.3-2.9-13.5-6.9c-0.6,1-0.9,2.1-0.9,3.3 c0,2.3,1.2,4.3,2.9,5.5c-1.1,0-2.1-0.3-3-0.8c0,0,0,0.1,0,0.1c0,3.2,2.3,5.8,5.3,6.4c-0.6,0.1-1.1,0.2-1.7,0.2c-0.4,0-0.8,0-1.2-0.1 c0.8,2.6,3.3,4.5,6.1,4.6c-2.2,1.8-5.1,2.8-8.2,2.8c-0.5,0-1.1,0-1.6-0.1c2.9,1.9,6.4,2.9,10.1,2.9c12.1,0,18.7-10,18.7-18.7 c0-0.3,0-0.6,0-0.8C46,24.5,47.1,23.4,48,22.1z"
+                  fill="white"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    className="opacity-25 fixed inset-0 z-40 bg-black"
+  />,
+]
+`;
+
 exports[`Storyshots Ui Parts/Answer Column All Blank 1`] = `
 <div
   className="grid grid-cols-6 gap-1"

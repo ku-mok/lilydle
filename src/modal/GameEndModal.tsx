@@ -3,10 +3,12 @@ export type GameEndModalProps = {
   answer: string;
   lemonadeUrl: string;
   modalClose: () => void;
-  tweetText: string;
+  answerHistory: AnswerHistoryType[];
   isClear: boolean;
 };
 import { TwitterShareButton, TwitterIcon } from "react-share";
+import { AnswerHistoryType } from "../hooks/useWordleAnswer";
+import { answerHistoryToTweet } from "./answerHistoryToTweet";
 import ModalLayout from "./ModalLayout";
 
 const GameEndModal: React.FC<GameEndModalProps> = (props) => {
@@ -28,7 +30,10 @@ const GameEndModal: React.FC<GameEndModalProps> = (props) => {
         <a href={props.lemonadeUrl}>{props.lemonadeUrl}</a>
       </div>
       <div className="text-center">
-        <TwitterShareButton url="http://example.com" title={props.tweetText}>
+        <TwitterShareButton
+          url="http://example.com"
+          title={answerHistoryToTweet(props.answerHistory)}
+        >
           <TwitterIcon size={32} round />
         </TwitterShareButton>
       </div>
