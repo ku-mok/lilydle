@@ -21,14 +21,8 @@ function App() {
     "https://lemonade.lily.garden/lily/Otake_Sunao"
   );
   // キーボードの入力関連
-  const {
-    isAlternate,
-    inputtedText,
-    resestInputtedText,
-    onKanaToggle,
-    onBackSpaceClick,
-    onKanaClick,
-  } = useKanaBoard();
+  const { inputtedText, resestInputtedText, onBackSpaceClick, onKanaClick } =
+    useKanaBoard(6);
   // 回答履歴
   const {
     answerHistory,
@@ -89,10 +83,8 @@ function App() {
         </div>
         <InputArea
           {...{
-            isAlternate,
             correctKanas: correctChars,
             candidateKanas: candidateChars,
-            onKanaToggle,
             onBackSpaceClick,
             onKanaClick,
             onSubmitClick,

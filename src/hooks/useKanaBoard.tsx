@@ -1,34 +1,27 @@
 import { useState, useCallback } from "react";
 
-export const useKanaBoard = () => {
-  //  キーボードの入力モードと入力中のテキスト
-  const [isAlternate, setIsAlternate] = useState(false);
+export const useKanaBoard = (maxTextLength: number) => {
+  //  入力中のテキスト
   const [inputtedText, setinputtedText] = useState("");
   // キーボード操作の処理
-  const onKanaToggle = useCallback(
-    (isAlternate) => setIsAlternate(isAlternate),
-    []
-  );
   const onBackSpaceClick = useCallback(() => {
     setinputtedText(inputtedText.slice(0, -1));
   }, [inputtedText]);
   const onKanaClick = useCallback(
     (kana) => {
-      if (inputtedText.length <= 6) {
+      if (inputtedText.length < maxTextLength) {
         setinputtedText(inputtedText + kana);
       }
     },
-    [inputtedText]
+    [inputtedText, maxTextLength]
   );
   // 入力テキストを初期化する
   const resestInputtedText = useCallback(() => {
     setinputtedText("");
   }, []);
   return {
-    isAlternate,
     inputtedText,
     resestInputtedText,
-    onKanaToggle,
     onBackSpaceClick,
     onKanaClick,
   };

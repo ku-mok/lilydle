@@ -22,4 +22,14 @@ describe("入力", () => {
     await userEvent.click(screen.getByText("一文字削除"));
     expect(screen.getAllByText("あ")).toHaveLength(1);
   });
+  it("cannot input more than 6 characters", async () => {
+    render(<App />);
+    await userEvent.click(screen.getByText("あ"));
+    await userEvent.click(screen.getByText("い"));
+    await userEvent.click(screen.getByText("う"));
+    await userEvent.click(screen.getByText("え"));
+    await userEvent.click(screen.getByText("お"));
+    await userEvent.click(screen.getByText("か"));
+    await userEvent.click(screen.getByText("き"));
+  });
 });

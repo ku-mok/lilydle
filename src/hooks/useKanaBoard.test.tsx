@@ -2,20 +2,6 @@ import { RenderResult, renderHook, act } from "@testing-library/react-hooks";
 import { useKanaBoard } from "./useKanaBoard";
 
 let result: RenderResult<ReturnType<typeof useKanaBoard>>;
-describe("キーボードの入力モードの処理", () => {
-  beforeEach(() => {
-    result = renderHook(() => useKanaBoard()).result;
-  });
-  it("set default isAlaternate as false", () => {
-    expect(result.current.isAlternate).toBeFalsy();
-  });
-  it("change isAlternate to true", () => {
-    act(() => {
-      result.current.onKanaToggle(true);
-    });
-    expect(result.current.isAlternate).toBeTruthy();
-  });
-});
 describe("キーボードの入力の処理", () => {
   beforeEach(() => {
     result = renderHook(() => useKanaBoard()).result;
