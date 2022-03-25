@@ -1,5 +1,5 @@
 import { AnswerHistoryType } from "../hooks/useWordleAnswer";
-import AnswerColumn from "../uiParts/AnswerColumn";
+import AnswerRow from "../uiParts/AnswerRow";
 
 export type AnswerHistoryProps = {
   answerHistory: AnswerHistoryType[];
@@ -13,26 +13,26 @@ const AnswerHistory: React.FC<AnswerHistoryProps> = (props) => {
       {
         //送信済みの回答
         props.answerHistory.map((h) => (
-          <div className="mb-1" key={h.input}>
-            <AnswerColumn input={h.input} judge={h.judge} />
+          <div className="mb-1" key={h.input} data-testid="row">
+            <AnswerRow input={h.input} judge={h.judge} />
           </div>
         ))
       }
       {
         //入力中の回答
         props.answerHistory.length < props.maxAnswerCount && (
-          <div className="mb-1">
-            <AnswerColumn input={props.inputtedText} />
+          <div className="mb-1" data-testid="row">
+            <AnswerRow input={props.inputtedText} />
           </div>
         )
       }
       {
         //未入力
         props.answerHistory.length < props.maxAnswerCount &&
-          [...Array(props.maxAnswerCount - props.answerHistory.length)].map(
+          [...Array(props.maxAnswerCount - props.answerHistory.length - 1)].map(
             (_, index) => (
-              <div key={index} className="mb-1">
-                <AnswerColumn key={index} />
+              <div key={index} className="mb-1" data-testid="row">
+                <AnswerRow key={index} />
               </div>
             )
           )

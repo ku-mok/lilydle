@@ -5,7 +5,7 @@ export type AnswerColumnProps = {
   input?: string;
 };
 
-const AnswerColumn: React.FC<AnswerColumnProps> = ({ input, judge }) => {
+const AnswerRow: React.FC<AnswerColumnProps> = ({ input, judge }) => {
   return (
     <div className="grid grid-cols-6 gap-1">
       {[...(input ? input : "")].map((inputChar, index) => (
@@ -25,4 +25,4 @@ const AnswerColumn: React.FC<AnswerColumnProps> = ({ input, judge }) => {
   );
 };
 
-export default AnswerColumn;
+export default AnswerRow;
