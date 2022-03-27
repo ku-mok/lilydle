@@ -13,7 +13,7 @@ export function useWorldeAnswer(
     );
     index = yearMonthDayInt % answerCandidates.length;
   } else {
-    index = 0;
+    index = Math.floor(Math.random() * answerCandidates.length);
   }
   if (process.env.NODE_ENV === "development") {
     console.log(answerCandidates[index]);
