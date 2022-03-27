@@ -1,30 +1,7 @@
 import Footer from "./uiParts/Footer";
 import Header from "./uiParts/Header";
 import GameBoard from "./organism/GameBoard";
-import { AnswerType } from "./types/AnswerType";
-const answerCandidates: AnswerType[] = [
-  {
-    kana: "おたけすなお",
-    lemonadeUrl: "https://lemonade.lily.garden/lily/Otake_Sunao",
-    display: "尾竹簾",
-  },
-  {
-    kana: "すずきちなみ",
-    lemonadeUrl: "https://lemonade.lily.garden/lily/Otake_Sunao",
-    display: "尾竹簾",
-  },
-  {
-    kana: "あかしあいか",
-    lemonadeUrl: "https://lemonade.lily.garden/lily/Otake_Sunao",
-    display: "尾竹簾",
-  },
-  {
-    kana: "ああああああ",
-    lemonadeUrl: "https://lemonade.lily.garden/lily/Otake_Sunao",
-    display: "尾竹簾",
-  },
-];
-
+import { answerCandidates } from "./data/lilydleData";
 function App() {
   return (
     <>

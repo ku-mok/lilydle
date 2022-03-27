@@ -5,14 +5,18 @@ export function useWorldeAnswer(
   answerCandidates: AnswerType[],
   gameMode: "daily" | "endless"
 ): AnswerType {
-  // TODO: ゲームモードに応じてanswerを設定するロジックの実装
-  const answer = useMemo(
-    () => ({
-      kana: "おたけすなお",
-      lemonadeUrl: "https://lemonade.lily.garden/lily/Otake_Sunao",
-      display: "尾竹簾",
-    }),
-    []
-  );
-  return answer;
+  let index: number;
+  if (gameMode === "daily") {
+    const today = new Date();
+    const yearMonthDayInt = parseInt(
+      `${today.getFullYear()}${today.getMonth()}${today.getDate()}`
+    );
+    index = yearMonthDayInt % answerCandidates.length;
+  } else {
+    index = 0;
+  }
+  if (process.env.NODE_ENV === "development") {
+    console.log(answerCandidates[index]);
+  }
+  return useMemo(() => answerCandidates[index], [answerCandidates, index]);
 }
