@@ -32,7 +32,7 @@ const GameEndModal: React.FC<GameEndModalProps> = (props) => {
       </div>
       <div className="text-center">
         <TwitterShareButton
-          url="http://example.com"
+          url="https://lilydle-f1607.web.app/"
           title={answerHistoryToTweet(props.answerHistory)}
         >
           <TwitterIcon size={32} round />

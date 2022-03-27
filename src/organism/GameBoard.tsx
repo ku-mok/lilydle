@@ -148,8 +148,8 @@ const GameBoard = (props: { answerCandidates: AnswerType[] }) => {
         />
       )}
       <GameModeSelector mode={mode} onModeChange={onModeChangeHandler} />
-      <div className="container xl:w-3/12 lg:w-11/12 mx-auto">
-        <div className="container xl:w-8/12 lg:w-full mx-auto">
+      <div className="container xl:w-4/12 lg:w-11/12 mx-auto">
+        <div className="container xl:w-7/12 lg:w-full mx-auto">
           <AnswerHistory
             answerHistory={answerHistory}
             inputtedText={inputtedText}

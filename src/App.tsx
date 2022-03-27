@@ -7,7 +7,7 @@ function App() {
     <>
       <Header />
       <GameBoard answerCandidates={answerCandidates} />
-      <div className="mt-6 container xl:w-3/12 lg:w-11/12 mx-auto">
+      <div className="mt-6 container xl:w-4/12 lg:w-11/12 mx-auto">
         <Footer allAnswerCandidates={answerCandidates.length} />
       </div>
     </>

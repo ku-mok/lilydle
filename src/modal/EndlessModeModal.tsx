@@ -42,7 +42,7 @@ const EndlessModal: React.FC<GameEndModalProps> = (props) => {
       </div>
       <div className="text-center">
         <TwitterShareButton
-          url="http://example.com"
+          url="https://lilydle-f1607.web.app/"
           title={`Lilydle\nエンドレスチャレンジで${props.clearCount}回連続で正解しました！\n#Lilydle #アサルトリリィ版Wordle`}
         >
           <TwitterIcon size={32} round />
