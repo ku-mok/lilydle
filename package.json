@@ -4,7 +4,6 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
-    "ci": "jest && eslint",
     "build": "tsc && vite build",
     "preview": "vite preview",
     "storybook": "start-storybook -p 6006",

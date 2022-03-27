@@ -7,3 +7,4 @@ jest.config.js
 tailwind.config.js
 storybook.test.ts.snap
 babel.config.js
+index.css
