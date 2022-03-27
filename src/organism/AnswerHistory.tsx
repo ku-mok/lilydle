@@ -12,8 +12,8 @@ const AnswerHistory: React.FC<AnswerHistoryProps> = (props) => {
     <>
       {
         //送信済みの回答
-        props.answerHistory.map((h) => (
-          <div className="mb-1" key={h.input} data-testid="row">
+        props.answerHistory.map((h, i) => (
+          <div className="mb-1" key={h.input + i} data-testid="row">
             <AnswerRow input={h.input} judge={h.judge} />
           </div>
         ))
