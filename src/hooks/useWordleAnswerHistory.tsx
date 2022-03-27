@@ -10,12 +10,15 @@ export const useWordleAnswerHistory = (
 ) => {
   // 解答履歴
   const [answerHistory, setAnswerHistory] = useState<AnswerHistoryType[]>([]);
-  const resetHistory = useCallback(() => {
-    setAnswerHistory([]);
-  }, [setAnswerHistory]);
   // 文字の履歴
   const [candidateChars, setCandidateChars] = useState<string[]>([]);
   const [correctChars, setcorrectChars] = useState<string[]>([]);
+  // リセット
+  const resetHistory = useCallback(() => {
+    setCandidateChars([]);
+    setcorrectChars([]);
+    setAnswerHistory([]);
+  }, [setAnswerHistory, setCandidateChars, setcorrectChars]);
   const judgeAnswer = useCallback(
     (input: string) => {
       // 候補にふくまれているか
@@ -39,6 +42,9 @@ export const useWordleAnswerHistory = (
       );
       // 履歴に追加
       setAnswerHistory((prev) => [...prev, { input, judge }]);
+      if (process.env.NODE_ENV === "development") {
+        console.log(answer);
+      }
       return input === answer ? "correct" : "incorrect";
     },
     [answer, answerCandidates]

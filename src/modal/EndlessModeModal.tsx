@@ -1,16 +1,15 @@
 export type GameEndModalProps = {
   answer: AnswerType;
   modalClose: () => void;
-  answerHistory: AnswerHistoryType[];
   isClear: boolean;
+  onRetryClick: () => void;
+  clearCount: number;
 };
 import { TwitterShareButton, TwitterIcon } from "react-share";
-import { AnswerHistoryType } from "../hooks/useWordleAnswerHistory";
 import { AnswerType } from "../types/AnswerType";
-import { answerHistoryToTweet } from "./answerHistoryToTweet";
 import ModalLayout from "./ModalLayout";
 
-const GameEndModal: React.FC<GameEndModalProps> = (props) => {
+const EndlessModal: React.FC<GameEndModalProps> = (props) => {
   return (
     <ModalLayout modalClose={props.modalClose}>
       {props.isClear ? (
@@ -26,14 +25,25 @@ const GameEndModal: React.FC<GameEndModalProps> = (props) => {
         {props.answer.display} ({props.answer.kana})
       </div>
       <div className="text-center mb-4">
-        <a href={props.answer.lemonadeUrl} rel="noreferrer" target="_blank">
+        <a href={props.answer.lemonadeUrl} target="_blank" rel="noreferrer">
           {props.answer.lemonadeUrl}
         </a>
+      </div>
+      <div className="text-center mb-4">
+        <p>{props.clearCount}回連続で正解しました</p>
+      </div>
+      <div className="text-center">
+        <button
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+          onClick={props.onRetryClick}
+        >
+          {props.isClear ? "次のチャレンジへ" : "もう一度"}
+        </button>
       </div>
       <div className="text-center">
         <TwitterShareButton
           url="http://example.com"
-          title={answerHistoryToTweet(props.answerHistory)}
+          title={`Lilydle\nエンドレスチャレンジで${props.clearCount}回連続で正解しました！\n#Lilydle #アサルトリリィ版Wordle`}
         >
           <TwitterIcon size={32} round />
         </TwitterShareButton>
@@ -41,4 +51,4 @@ const GameEndModal: React.FC<GameEndModalProps> = (props) => {
     </ModalLayout>
   );
 };
-export default GameEndModal;
+export default EndlessModal;

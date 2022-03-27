@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import GameBoard from "./GameBoard";
-import { useWorldeAnswer } from "../hooks/useWordleAnswer";
+import { generateWordleAnswer } from "./generateWordleAnswer";
 import { AnswerType } from "../types/AnswerType";
 // 解答候補
 const answerCandidates: AnswerType[] = [
@@ -27,9 +27,9 @@ const answerCandidates: AnswerType[] = [
   },
 ];
 // 解答を固定するためにuseWorldeAnswerをモックする
-jest.mock("../hooks/useWordleAnswer");
-const mockUseWorldeAnswer = useWorldeAnswer as jest.Mock;
-mockUseWorldeAnswer.mockImplementation(() => ({
+jest.mock("./generateWordleAnswer");
+const mockGenerateWordleAnswer = generateWordleAnswer as jest.Mock;
+mockGenerateWordleAnswer.mockImplementation(() => ({
   kana: "おたけすなお",
   lemonadeUrl: "https://lemonade.lily.garden/lily/Otake_Sunao",
   display: "尾竹簾",
@@ -37,7 +37,7 @@ mockUseWorldeAnswer.mockImplementation(() => ({
 
 describe("入力", () => {
   beforeEach(() => {
-    mockUseWorldeAnswer.mockClear();
+    mockGenerateWordleAnswer.mockClear();
   });
   it("can input character with screen keyboard", async () => {
     render(<GameBoard answerCandidates={answerCandidates} />);
@@ -72,7 +72,7 @@ describe("入力", () => {
 
 describe("正誤判定", () => {
   beforeEach(() => {
-    mockUseWorldeAnswer.mockClear();
+    mockGenerateWordleAnswer.mockClear();
   });
 
   it("disable enter button for less than 6 chars", async () => {
@@ -180,5 +180,41 @@ describe("正誤判定", () => {
     expect(
       screen.getByText("リリィ、CHARM、レギオンの名前ではありません")
     ).toBeInTheDocument();
+  });
+});
+
+describe("ゲームモード", () => {
+  beforeEach(() => {
+    mockGenerateWordleAnswer.mockClear();
+  });
+  it("reset history and regenerate answer when mode changed", async () => {
+    expect(mockGenerateWordleAnswer.mock.calls.length).toBe(0);
+    render(<GameBoard answerCandidates={answerCandidates} />);
+    expect(mockGenerateWordleAnswer.mock.calls.length).toBe(1);
+    await userEvent.click(screen.getAllByText("す").slice(-1)[0]);
+    await userEvent.click(screen.getByText("濁音・拗音・記号"));
+    await userEvent.click(screen.getAllByText("ず").slice(-1)[0]);
+    await userEvent.click(screen.getByText("通常の50音"));
+    await userEvent.click(screen.getAllByText("き").slice(-1)[0]);
+    await userEvent.click(screen.getAllByText("ち").slice(-1)[0]);
+    await userEvent.click(screen.getAllByText("な").slice(-1)[0]);
+    await userEvent.click(screen.getAllByText("み").slice(-1)[0]);
+    await userEvent.click(screen.getAllByText("決定").slice(-1)[0]);
+    await userEvent.click(screen.getAllByText("あ").slice(-1)[0]);
+    await userEvent.click(screen.getByText("エンドレスチャレンジ"));
+    expect(mockGenerateWordleAnswer.mock.calls.length).toBe(2);
+    expect(mockGenerateWordleAnswer.mock.calls[1][1]).toBe("endless");
+    expect(screen.getAllByText("す").length).toBe(1);
+    expect(screen.getByText("す").parentNode).not.toHaveClass("bg-yellow-500");
+    expect(screen.getAllByText("あ").length).toBe(1);
+  });
+  it("do nothing when tried to change the same mode; daily challenge", async () => {
+    expect(mockGenerateWordleAnswer.mock.calls.length).toBe(0);
+    render(<GameBoard answerCandidates={answerCandidates} />);
+    expect(mockGenerateWordleAnswer.mock.calls.length).toBe(1);
+    await userEvent.click(screen.getAllByText("す").slice(-1)[0]);
+    await userEvent.click(screen.getByText("デイリーチャレンジ"));
+    expect(mockGenerateWordleAnswer.mock.calls.length).toBe(1);
+    expect(screen.getAllByText("す").length).toBe(2);
   });
 });

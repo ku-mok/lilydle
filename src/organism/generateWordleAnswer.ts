@@ -1,7 +1,6 @@
-import { useMemo } from "react";
 import { AnswerType } from "../types/AnswerType";
 
-export function useWorldeAnswer(
+export function generateWordleAnswer(
   answerCandidates: AnswerType[],
   gameMode: "daily" | "endless"
 ): AnswerType {
@@ -15,8 +14,5 @@ export function useWorldeAnswer(
   } else {
     index = Math.floor(Math.random() * answerCandidates.length);
   }
-  if (process.env.NODE_ENV === "development") {
-    console.log(answerCandidates[index]);
-  }
-  return useMemo(() => answerCandidates[index], [answerCandidates, index]);
+  return answerCandidates[index];
 }
