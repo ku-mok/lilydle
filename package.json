@@ -4,6 +4,7 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
+    "lint": "yarn eslint \"src/**/{*.ts,*.tsx}\"",
     "build": "tsc && vite build",
     "preview": "vite preview",
     "storybook": "start-storybook -p 6006",
