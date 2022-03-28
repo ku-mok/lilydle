@@ -22,7 +22,7 @@ jobs:
           create_credentials_file: true
           workload_identity_provider: 'projects/744209985919/locations/global/workloadIdentityPools/pool/providers/github-actions'
           service_account: 'github-action-474624754@lilydle-f1607.iam.gserviceaccount.com'
-      - run: gcloud --quiet alpha storage cp  gs://lilydle-f1606.appspot.com/lilydle-answer.json ./src/data/lilydle-answer.json
+      - run: gcloud --quiet alpha storage cp  gs://lilydle-f1607.appspot.com/lilydle-answer.json ./src/data/lilydle-answer.json
       - run: yarn install --frozen-lockfile --non-interactive && yarn lint && yarn build
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
