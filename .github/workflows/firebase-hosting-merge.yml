@@ -14,14 +14,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - uses: google-github-actions/setup-gcloud@v0
       - name: Authenticate to Google Cloud
         id: 'google-cloud-auth'
-        uses: 'google-github-actions/auth@v0'
+        uses: 'google-github-actions/auth@v0.4.1'
         with:
           create_credentials_file: true
-          workload_identity_provider: ${{ secrets.WORKLOAD_IDENTITY_PROVIDER }}
-          service_account: ${{ secrets.SERVICE_ACCOUNT }}
-      - uses: google-github-actions/setup-gcloud@v0
+          workload_identity_provider: 'projects/744209985919/locations/global/workloadIdentityPools/pool/providers/github-actions'
+          service_account: 'github-action-474624754@lilydle-f1607.iam.gserviceaccount.com'
       - run: gcloud --quiet alpha storage cp  gs://lilydle-f1606.appspot.com/lilydle-answer.json ./src/data/lilydle-answer.json
       - run: yarn install --frozen-lockfile --non-interactive && yarn lint && yarn build
       - uses: FirebaseExtended/action-hosting-deploy@v0
