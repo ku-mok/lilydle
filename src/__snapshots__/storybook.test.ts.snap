@@ -1619,7 +1619,7 @@ exports[`Storyshots Ui Parts/Answer Row One Correct One Candidate 1`] = `
 exports[`Storyshots Ui Parts/Footer Default 1`] = `
 Array [
   <h2
-    className="text-3xl mb-4"
+    className="text-3xl pb-4 mt-4"
   >
     遊び方
   </h2>,
@@ -1629,14 +1629,104 @@ Array [
     <p
       className="mb-2"
     >
-      アサルトリリィ版のwordleです。 六文字のリリィ名、CHARM名、レギオン名のいずれかが答えになっており、入力すると、それが答えになるかどうかを判定し、文字も位置もあっている場合は緑、文字は合っているが位置が違う場合は黄色、正解に含まれない文字だった場合は、グレーになります。
+      アサルトリリィ版のwordleです。現在、
+      のリリィ・CHARM・レギオン名が登録されています。
     </p>
     <p
       className="mb-2"
     >
-      作っといてなんですが、Twitter上でしか存在しないリリィもいるため、かなり難しい気がします。現在、
-      のリリィ・CHARM・レギオン名が登録されています。
+      六文字のリリィ名、CHARM名、レギオン名のいずれかが答えになっており、入力すると、それが答えになるかどうかを判定し、文字も位置もあっている場合は緑、文字は合っているが位置が違う場合は黄色、正解に含まれない文字だった場合は、グレーになります。
     </p>
+    <p
+      className="mb-2"
+    >
+      作っといてなんですが、Twitter上でしか存在しないリリィもいるため、かなり難しい気がします。
+    </p>
+    <h2
+      className="text-xl pb-4 mt-4 underline"
+    >
+      例
+    </h2>
+    <p
+      className="mb-2"
+    >
+      正解が尾竹廉 (おたけすなお) の場合
+    </p>
+    <p>
+      鈴木因 (すずきちなみ) を入力すると
+    </p>
+    <div
+      className="w-6/12"
+    >
+      <div
+        className="grid grid-cols-6 gap-1"
+      >
+        <div
+          className="border w-full pb-full flex justify-center h-full rounded-xl relative bg-yellow-500"
+        >
+          <div
+            className="absolute top-2/4 left-2/4 -translate-x-1/2 -translate-y-1/2 text-xl "
+          >
+            す
+          </div>
+        </div>
+        <div
+          className="border w-full pb-full flex justify-center h-full rounded-xl relative bg-gray-500"
+        >
+          <div
+            className="absolute top-2/4 left-2/4 -translate-x-1/2 -translate-y-1/2 text-xl "
+          >
+            ず
+          </div>
+        </div>
+        <div
+          className="border w-full pb-full flex justify-center h-full rounded-xl relative bg-gray-500"
+        >
+          <div
+            className="absolute top-2/4 left-2/4 -translate-x-1/2 -translate-y-1/2 text-xl "
+          >
+            き
+          </div>
+        </div>
+        <div
+          className="border w-full pb-full flex justify-center h-full rounded-xl relative bg-gray-500"
+        >
+          <div
+            className="absolute top-2/4 left-2/4 -translate-x-1/2 -translate-y-1/2 text-xl "
+          >
+            ち
+          </div>
+        </div>
+        <div
+          className="border w-full pb-full flex justify-center h-full rounded-xl relative bg-green-500"
+        >
+          <div
+            className="absolute top-2/4 left-2/4 -translate-x-1/2 -translate-y-1/2 text-xl "
+          >
+            な
+          </div>
+        </div>
+        <div
+          className="border w-full pb-full flex justify-center h-full rounded-xl relative bg-gray-500"
+        >
+          <div
+            className="absolute top-2/4 left-2/4 -translate-x-1/2 -translate-y-1/2 text-xl "
+          >
+            み
+          </div>
+        </div>
+      </div>
+    </div>
+    <p
+      className="mb-2"
+    >
+      のように表示されます。これは、「す」は正解のリリィに含まれている文字であるが一文字目ではない、「な」は五文字目、「ず、き、ち、み」は正解のリリィに含まれていない文字であることを示しています。
+    </p>
+    <h2
+      className="text-3xl pb-4 mt-4"
+    >
+      謝辞
+    </h2>
     <p
       className="mb-2"
     >
@@ -1666,12 +1756,30 @@ Array [
       </a>
       に感謝。
     </p>
-    <p>
-      作成: 
+    <h2
+      className="text-3xl pb-4 mt-4"
+    >
+      問い合わせなど
+    </h2>
+    <p
+      className="mb-2"
+    >
       <a
-        href="https://twitter.com/mksyn_21"
+        href="https://twitter.com/mksyn21"
       >
-        Mok
+        もく(@mksyn21)
+      </a>
+      が作成しました。要望・バグ報告はTwitterでリプライをください
+    </p>
+    <p
+      className="mb-2"
+    >
+      Github repository:
+       
+      <a
+        href="https://github.com/ku-mok/lilydle"
+      >
+        ku-mok/lilydle
       </a>
     </p>
   </div>,
