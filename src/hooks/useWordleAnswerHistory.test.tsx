@@ -123,6 +123,17 @@ describe("文字履歴", () => {
       expect(candidate).toBe(expected[idx]);
     });
   });
+  it("store wrong chars", () => {
+    const input = "すずきちなみ";
+    const expected = ["き", "ち", "ず", "み"];
+    act(() => {
+      result.current.judgeAnswer(input);
+    });
+    expect(result.current.wrongChars.length).toBe(expected.length);
+    result.current.wrongChars.forEach((candidate) => {
+      expect(expected.includes(candidate)).toBeTruthy();
+    });
+  });
   it("judge out of candidate", () => {
     expect(result.current.judgeAnswer("あいうえお")).toBe("not-candidate");
   });

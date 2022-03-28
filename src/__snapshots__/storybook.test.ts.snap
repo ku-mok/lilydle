@@ -4008,6 +4008,523 @@ exports[`Storyshots Ui Parts/Kana Panels Default 1`] = `
 </div>
 `;
 
+exports[`Storyshots Ui Parts/Kana Panels Wrongs 1`] = `
+<div
+  className="grid grid-cols-10 gap-1"
+>
+  <button
+    onClick={[Function]}
+  >
+    <div
+      className="border border-gray-500 border w-full pb-full flex justify-center h-full rounded-xl relative bg-white"
+    >
+      <div
+        className="absolute top-2/4 left-2/4 -translate-x-1/2 -translate-y-1/2 text-xl "
+      >
+        ぁ
+      </div>
+    </div>
+  </button>
+  <button
+    onClick={[Function]}
+  >
+    <div
+      className="border border-gray-500 border w-full pb-full flex justify-center h-full rounded-xl relative bg-white"
+    >
+      <div
+        className="absolute top-2/4 left-2/4 -translate-x-1/2 -translate-y-1/2 text-xl "
+      >
+        が
+      </div>
+    </div>
+  </button>
+  <button
+    onClick={[Function]}
+  >
+    <div
+      className="border border-gray-500 border w-full pb-full flex justify-center h-full rounded-xl relative bg-white"
+    >
+      <div
+        className="absolute top-2/4 left-2/4 -translate-x-1/2 -translate-y-1/2 text-xl "
+      >
+        ざ
+      </div>
+    </div>
+  </button>
+  <button
+    onClick={[Function]}
+  >
+    <div
+      className="border border-gray-500 border w-full pb-full flex justify-center h-full rounded-xl relative bg-white"
+    >
+      <div
+        className="absolute top-2/4 left-2/4 -translate-x-1/2 -translate-y-1/2 text-xl "
+      >
+        だ
+      </div>
+    </div>
+  </button>
+  <button
+    onClick={[Function]}
+  >
+    <div
+      className="border border-gray-500 border w-full pb-full flex justify-center h-full rounded-xl relative bg-white"
+    >
+      <div
+        className="absolute top-2/4 left-2/4 -translate-x-1/2 -translate-y-1/2 text-xl "
+      >
+        ば
+      </div>
+    </div>
+  </button>
+  <button
+    onClick={[Function]}
+  >
+    <div
+      className="border border-gray-500 border w-full pb-full flex justify-center h-full rounded-xl relative bg-white"
+    >
+      <div
+        className="absolute top-2/4 left-2/4 -translate-x-1/2 -translate-y-1/2 text-xl "
+      >
+        ぱ
+      </div>
+    </div>
+  </button>
+  <button
+    onClick={[Function]}
+  >
+    <div
+      className="border border-gray-500 border w-full pb-full flex justify-center h-full rounded-xl relative bg-white"
+    >
+      <div
+        className="absolute top-2/4 left-2/4 -translate-x-1/2 -translate-y-1/2 text-xl "
+      >
+        ゃ
+      </div>
+    </div>
+  </button>
+  <button
+    onClick={[Function]}
+  >
+    <div
+      className="border border-gray-500 border w-full pb-full flex justify-center h-full rounded-xl relative bg-white"
+    >
+      <div
+        className="absolute top-2/4 left-2/4 -translate-x-1/2 -translate-y-1/2 text-xl "
+      >
+        ゔ
+      </div>
+    </div>
+  </button>
+  <div
+    className=""
+  />
+  <div
+    className=""
+  />
+  <button
+    onClick={[Function]}
+  >
+    <div
+      className="border border-gray-500 border w-full pb-full flex justify-center h-full rounded-xl relative bg-white"
+    >
+      <div
+        className="absolute top-2/4 left-2/4 -translate-x-1/2 -translate-y-1/2 text-xl "
+      >
+        ぃ
+      </div>
+    </div>
+  </button>
+  <button
+    onClick={[Function]}
+  >
+    <div
+      className="border border-gray-500 border w-full pb-full flex justify-center h-full rounded-xl relative bg-white"
+    >
+      <div
+        className="absolute top-2/4 left-2/4 -translate-x-1/2 -translate-y-1/2 text-xl "
+      >
+        ぎ
+      </div>
+    </div>
+  </button>
+  <button
+    onClick={[Function]}
+  >
+    <div
+      className="border border-gray-500 border w-full pb-full flex justify-center h-full rounded-xl relative bg-white"
+    >
+      <div
+        className="absolute top-2/4 left-2/4 -translate-x-1/2 -translate-y-1/2 text-xl "
+      >
+        じ
+      </div>
+    </div>
+  </button>
+  <button
+    onClick={[Function]}
+  >
+    <div
+      className="border border-gray-500 border w-full pb-full flex justify-center h-full rounded-xl relative bg-white"
+    >
+      <div
+        className="absolute top-2/4 left-2/4 -translate-x-1/2 -translate-y-1/2 text-xl "
+      >
+        ぢ
+      </div>
+    </div>
+  </button>
+  <button
+    onClick={[Function]}
+  >
+    <div
+      className="border border-gray-500 border w-full pb-full flex justify-center h-full rounded-xl relative bg-white"
+    >
+      <div
+        className="absolute top-2/4 left-2/4 -translate-x-1/2 -translate-y-1/2 text-xl "
+      >
+        び
+      </div>
+    </div>
+  </button>
+  <button
+    onClick={[Function]}
+  >
+    <div
+      className="border border-gray-500 border w-full pb-full flex justify-center h-full rounded-xl relative bg-white"
+    >
+      <div
+        className="absolute top-2/4 left-2/4 -translate-x-1/2 -translate-y-1/2 text-xl "
+      >
+        ぴ
+      </div>
+    </div>
+  </button>
+  <button
+    onClick={[Function]}
+  >
+    <div
+      className="border border-gray-500 border w-full pb-full flex justify-center h-full rounded-xl relative bg-white"
+    >
+      <div
+        className="absolute top-2/4 left-2/4 -translate-x-1/2 -translate-y-1/2 text-xl "
+      >
+        ゅ
+      </div>
+    </div>
+  </button>
+  <div
+    className=""
+  />
+  <div
+    className=""
+  />
+  <div
+    className=""
+  />
+  <button
+    onClick={[Function]}
+  >
+    <div
+      className="border border-gray-500 border w-full pb-full flex justify-center h-full rounded-xl relative bg-white"
+    >
+      <div
+        className="absolute top-2/4 left-2/4 -translate-x-1/2 -translate-y-1/2 text-xl "
+      >
+        ぅ
+      </div>
+    </div>
+  </button>
+  <button
+    onClick={[Function]}
+  >
+    <div
+      className="border border-gray-500 border w-full pb-full flex justify-center h-full rounded-xl relative bg-white"
+    >
+      <div
+        className="absolute top-2/4 left-2/4 -translate-x-1/2 -translate-y-1/2 text-xl "
+      >
+        ぐ
+      </div>
+    </div>
+  </button>
+  <button
+    onClick={[Function]}
+  >
+    <div
+      className="border border-gray-500 border w-full pb-full flex justify-center h-full rounded-xl relative bg-white"
+    >
+      <div
+        className="absolute top-2/4 left-2/4 -translate-x-1/2 -translate-y-1/2 text-xl "
+      >
+        ず
+      </div>
+    </div>
+  </button>
+  <button
+    onClick={[Function]}
+  >
+    <div
+      className="border border-gray-500 border w-full pb-full flex justify-center h-full rounded-xl relative bg-white"
+    >
+      <div
+        className="absolute top-2/4 left-2/4 -translate-x-1/2 -translate-y-1/2 text-xl "
+      >
+        づ
+      </div>
+    </div>
+  </button>
+  <button
+    onClick={[Function]}
+  >
+    <div
+      className="border w-full pb-full flex justify-center h-full rounded-xl relative bg-gray-500"
+    >
+      <div
+        className="absolute top-2/4 left-2/4 -translate-x-1/2 -translate-y-1/2 text-xl "
+      >
+        ぶ
+      </div>
+    </div>
+  </button>
+  <button
+    onClick={[Function]}
+  >
+    <div
+      className="border border-gray-500 border w-full pb-full flex justify-center h-full rounded-xl relative bg-white"
+    >
+      <div
+        className="absolute top-2/4 left-2/4 -translate-x-1/2 -translate-y-1/2 text-xl "
+      >
+        ぷ
+      </div>
+    </div>
+  </button>
+  <button
+    onClick={[Function]}
+  >
+    <div
+      className="border border-gray-500 border w-full pb-full flex justify-center h-full rounded-xl relative bg-white"
+    >
+      <div
+        className="absolute top-2/4 left-2/4 -translate-x-1/2 -translate-y-1/2 text-xl "
+      >
+        ょ
+      </div>
+    </div>
+  </button>
+  <div
+    className=""
+  />
+  <div
+    className=""
+  />
+  <div
+    className=""
+  />
+  <button
+    onClick={[Function]}
+  >
+    <div
+      className="border border-gray-500 border w-full pb-full flex justify-center h-full rounded-xl relative bg-white"
+    >
+      <div
+        className="absolute top-2/4 left-2/4 -translate-x-1/2 -translate-y-1/2 text-xl "
+      >
+        ぇ
+      </div>
+    </div>
+  </button>
+  <button
+    onClick={[Function]}
+  >
+    <div
+      className="border border-gray-500 border w-full pb-full flex justify-center h-full rounded-xl relative bg-white"
+    >
+      <div
+        className="absolute top-2/4 left-2/4 -translate-x-1/2 -translate-y-1/2 text-xl "
+      >
+        げ
+      </div>
+    </div>
+  </button>
+  <button
+    onClick={[Function]}
+  >
+    <div
+      className="border border-gray-500 border w-full pb-full flex justify-center h-full rounded-xl relative bg-white"
+    >
+      <div
+        className="absolute top-2/4 left-2/4 -translate-x-1/2 -translate-y-1/2 text-xl "
+      >
+        ぜ
+      </div>
+    </div>
+  </button>
+  <button
+    onClick={[Function]}
+  >
+    <div
+      className="border border-gray-500 border w-full pb-full flex justify-center h-full rounded-xl relative bg-white"
+    >
+      <div
+        className="absolute top-2/4 left-2/4 -translate-x-1/2 -translate-y-1/2 text-xl "
+      >
+        で
+      </div>
+    </div>
+  </button>
+  <button
+    onClick={[Function]}
+  >
+    <div
+      className="border border-gray-500 border w-full pb-full flex justify-center h-full rounded-xl relative bg-white"
+    >
+      <div
+        className="absolute top-2/4 left-2/4 -translate-x-1/2 -translate-y-1/2 text-xl "
+      >
+        べ
+      </div>
+    </div>
+  </button>
+  <button
+    onClick={[Function]}
+  >
+    <div
+      className="border border-gray-500 border w-full pb-full flex justify-center h-full rounded-xl relative bg-white"
+    >
+      <div
+        className="absolute top-2/4 left-2/4 -translate-x-1/2 -translate-y-1/2 text-xl "
+      >
+        ぺ
+      </div>
+    </div>
+  </button>
+  <button
+    onClick={[Function]}
+  >
+    <div
+      className="border border-gray-500 border w-full pb-full flex justify-center h-full rounded-xl relative bg-white"
+    >
+      <div
+        className="absolute top-2/4 left-2/4 -translate-x-1/2 -translate-y-1/2 text-xl "
+      >
+        っ
+      </div>
+    </div>
+  </button>
+  <div
+    className=""
+  />
+  <div
+    className=""
+  />
+  <div
+    className=""
+  />
+  <button
+    onClick={[Function]}
+  >
+    <div
+      className="border border-gray-500 border w-full pb-full flex justify-center h-full rounded-xl relative bg-white"
+    >
+      <div
+        className="absolute top-2/4 left-2/4 -translate-x-1/2 -translate-y-1/2 text-xl "
+      >
+        ぉ
+      </div>
+    </div>
+  </button>
+  <button
+    onClick={[Function]}
+  >
+    <div
+      className="border border-gray-500 border w-full pb-full flex justify-center h-full rounded-xl relative bg-white"
+    >
+      <div
+        className="absolute top-2/4 left-2/4 -translate-x-1/2 -translate-y-1/2 text-xl "
+      >
+        ご
+      </div>
+    </div>
+  </button>
+  <button
+    onClick={[Function]}
+  >
+    <div
+      className="border border-gray-500 border w-full pb-full flex justify-center h-full rounded-xl relative bg-white"
+    >
+      <div
+        className="absolute top-2/4 left-2/4 -translate-x-1/2 -translate-y-1/2 text-xl "
+      >
+        ぞ
+      </div>
+    </div>
+  </button>
+  <button
+    onClick={[Function]}
+  >
+    <div
+      className="border border-gray-500 border w-full pb-full flex justify-center h-full rounded-xl relative bg-white"
+    >
+      <div
+        className="absolute top-2/4 left-2/4 -translate-x-1/2 -translate-y-1/2 text-xl "
+      >
+        ど
+      </div>
+    </div>
+  </button>
+  <button
+    onClick={[Function]}
+  >
+    <div
+      className="border border-gray-500 border w-full pb-full flex justify-center h-full rounded-xl relative bg-white"
+    >
+      <div
+        className="absolute top-2/4 left-2/4 -translate-x-1/2 -translate-y-1/2 text-xl "
+      >
+        ぼ
+      </div>
+    </div>
+  </button>
+  <button
+    onClick={[Function]}
+  >
+    <div
+      className="border border-gray-500 border w-full pb-full flex justify-center h-full rounded-xl relative bg-white"
+    >
+      <div
+        className="absolute top-2/4 left-2/4 -translate-x-1/2 -translate-y-1/2 text-xl "
+      >
+        ぽ
+      </div>
+    </div>
+  </button>
+  <button
+    onClick={[Function]}
+  >
+    <div
+      className="border border-gray-500 border w-full pb-full flex justify-center h-full rounded-xl relative bg-white"
+    >
+      <div
+        className="absolute top-2/4 left-2/4 -translate-x-1/2 -translate-y-1/2 text-xl "
+      >
+        ー
+      </div>
+    </div>
+  </button>
+  <div
+    className=""
+  />
+  <div
+    className=""
+  />
+  <div
+    className=""
+  />
+</div>
+`;
+
 exports[`Storyshots Ui Parts/Panel Candidate 1`] = `
 <div
   className="grid grid-cols-10 gap-1 w-4/12"

@@ -4,6 +4,7 @@ import KanaToggle from "../uiParts/KanaPanelToggle";
 
 export type InputAreaProps = {
   candidateKanas: string[];
+  wrongKanas: string[];
   correctKanas: string[];
   onKanaClick: (kana: string) => void;
   onBackSpaceClick: () => void;
@@ -39,6 +40,7 @@ const InputArea: React.FC<InputAreaProps> = ({
       </div>
       <KanaPanels
         correctKanas={props.correctKanas}
+        wrongKanas={props.wrongKanas}
         candidateKanas={props.candidateKanas}
         isAlternate={isAlternate}
         onClick={props.onKanaClick}

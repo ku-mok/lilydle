@@ -30,3 +30,10 @@ export const CorrectCandidateAlternate: ComponentStoryObj<typeof KanaPanels> = {
     candidateKanas: ["い", "ぶ"],
   },
 };
+
+export const Wrongs: ComponentStoryObj<typeof KanaPanels> = {
+  args: {
+    isAlternate: true,
+    wrongKanas: ["い", "ぶ"],
+  },
+};

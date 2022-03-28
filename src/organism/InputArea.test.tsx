@@ -13,6 +13,7 @@ it("default is normal-seion mode", () => {
       onKanaClick={onKanaClick}
       onBackSpaceClick={onBackSpaceClick}
       onSubmitClick={onSubmitClick}
+      wrongKanas={[]}
     />
   );
   expect(screen.queryByText("あ")).toBeInTheDocument();
@@ -30,6 +31,7 @@ it("toggle alter-daku-on, handaku-on mode", async () => {
       onKanaClick={onKanaClick}
       onBackSpaceClick={onBackSpaceClick}
       onSubmitClick={onSubmitClick}
+      wrongKanas={[]}
     />
   );
   await userEvent.click(screen.getByText("濁音・拗音・記号"));
@@ -48,6 +50,7 @@ it("toggle nomarl mode", async () => {
       onKanaClick={onKanaClick}
       onBackSpaceClick={onBackSpaceClick}
       onSubmitClick={onSubmitClick}
+      wrongKanas={[]}
     />
   );
   await userEvent.click(screen.getByText("濁音・拗音・記号"));

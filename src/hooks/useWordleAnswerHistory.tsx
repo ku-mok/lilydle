@@ -13,11 +13,13 @@ export const useWordleAnswerHistory = (
   // 文字の履歴
   const [candidateChars, setCandidateChars] = useState<string[]>([]);
   const [correctChars, setcorrectChars] = useState<string[]>([]);
+  const [wrongChars, setWrongChars] = useState<string[]>([]);
   // リセット
   const resetHistory = useCallback(() => {
     setCandidateChars([]);
     setcorrectChars([]);
     setAnswerHistory([]);
+    setWrongChars([]);
   }, [setAnswerHistory, setCandidateChars, setcorrectChars]);
   const judgeAnswer = useCallback(
     (input: string) => {
@@ -32,12 +34,13 @@ export const useWordleAnswerHistory = (
           if (inputChar === answerChar) {
             setcorrectChars((prev) => [...prev, inputChar]);
             return "correct";
-          }
-          if (answer.includes(inputChar)) {
+          } else if (answer.includes(inputChar)) {
             setCandidateChars((prev) => [...prev, inputChar]);
             return "candidate";
+          } else {
+            setWrongChars((prev) => [...prev, inputChar]);
+            return "wrong";
           }
-          return "wrong";
         }
       );
       // 履歴に追加
@@ -53,6 +56,7 @@ export const useWordleAnswerHistory = (
     answerHistory,
     judgeAnswer,
     resetHistory,
+    wrongChars,
     candidateChars,
     correctChars,
   };

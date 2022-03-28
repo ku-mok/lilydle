@@ -47,6 +47,7 @@ const GameBoard = (props: { answerCandidates: AnswerType[] }) => {
     answerHistory,
     judgeAnswer,
     resetHistory,
+    wrongChars,
     candidateChars,
     correctChars,
   } = useWordleAnswerHistory(
@@ -159,6 +160,7 @@ const GameBoard = (props: { answerCandidates: AnswerType[] }) => {
         <InputArea
           enterButtonEnabled={inputtedText.length === 6}
           candidateKanas={candidateChars}
+          wrongKanas={wrongChars}
           correctKanas={correctChars}
           onKanaClick={onKanaClick}
           onBackSpaceClick={onBackSpaceClick}

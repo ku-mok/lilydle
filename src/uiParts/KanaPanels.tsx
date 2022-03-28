@@ -4,11 +4,13 @@ export type KanaPanelsProps = {
   onClick: (kana: string) => void;
   correctKanas?: string[];
   candidateKanas?: string[];
+  wrongKanas?: string[];
   isAlternate: boolean;
 };
 
 const KanaPanels = ({
   correctKanas = [],
+  wrongKanas = [],
   candidateKanas = [],
   ...props
 }: KanaPanelsProps) => {
@@ -24,6 +26,8 @@ const KanaPanels = ({
           ? "correct"
           : candidateKanas.includes(kana)
           ? "candidate"
+          : wrongKanas.includes(kana)
+          ? "wrong"
           : "notSubmitted";
         return kana === "-" ? (
           <div className="" key={index} />

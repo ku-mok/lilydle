@@ -70,6 +70,35 @@ describe("入力", () => {
   });
 });
 
+describe("キーボードの状態更新", () => {
+  beforeEach(async () => {
+    render(<GameBoard answerCandidates={answerCandidates} />);
+    await userEvent.click(screen.getByText("す"));
+    await userEvent.click(screen.getByText("濁音・拗音・記号"));
+    await userEvent.click(screen.getByText("ず"));
+    await userEvent.click(screen.getByText("通常の50音"));
+    await userEvent.click(screen.getByText("き"));
+    await userEvent.click(screen.getByText("ち"));
+    await userEvent.click(screen.getByText("な"));
+    await userEvent.click(screen.getByText("み"));
+    await userEvent.click(screen.getByText("決定"));
+  });
+  it("show correct keys", () => {
+    expect(screen.getAllByText("な").slice(-1)[0].parentNode).toHaveClass(
+      "bg-green-500"
+    );
+  });
+  it("show candidate keys", () => {
+    expect(screen.getAllByText("す").slice(-1)[0].parentNode).toHaveClass(
+      "bg-yellow-500"
+    );
+  });
+  it("show wrong keys", () => {
+    expect(screen.getAllByText("き").slice(-1)[0].parentNode).toHaveClass(
+      "bg-gray-500"
+    );
+  });
+});
 describe("正誤判定", () => {
   beforeEach(() => {
     mockGenerateWordleAnswer.mockClear();
