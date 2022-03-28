@@ -14,8 +14,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Setup google cloud SDK
-        uses: google-github-actions/setup-gcloud@v0
       - name: Authenticate to Google Cloud
         id: 'google-cloud-auth'
         uses: 'google-github-actions/auth@v0'
@@ -23,6 +21,7 @@ jobs:
           create_credentials_file: true
           workload_identity_provider: ${{ secrets.WORKLOAD_IDENTITY_PROVIDER }}
           service_account: ${{ secrets.SERVICE_ACCOUNT }}
+      - uses: google-github-actions/setup-gcloud@v0
       - run: gcloud --quiet alpha storage cp  gs://lilydle-f1606.appspot.com/lilydle-answer.json ./src/data/lilydle-answer.json
       - run: yarn install --frozen-lockfile --non-interactive && yarn lint && yarn build
       - uses: FirebaseExtended/action-hosting-deploy@v0
