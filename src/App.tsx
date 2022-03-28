@@ -1,7 +1,7 @@
 import Footer from "./uiParts/Footer";
 import Header from "./uiParts/Header";
 import GameBoard from "./organism/GameBoard";
-import { answerCandidates } from "./data/lilydleData";
+import answerCandidates from "./data/lilydle-answer.json";
 function App() {
   return (
     <>
