@@ -7,7 +7,7 @@ permissions:
 name: Deploy to Firebase Hosting on merge
 on:
   repository_dispatch:
-    types: [update-lilydle]
+    types: [deploy]
   push:
     branches:
       - master
