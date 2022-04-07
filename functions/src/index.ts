@@ -3,6 +3,7 @@ import * as admin from "firebase-admin";
 import { createLilydleAnswer } from "./assaultlilyRdf";
 import path = require("path");
 import os = require("os");
+import axios from "axios";
 const firebase = admin.initializeApp();
 const storage = firebase.storage();
 
@@ -39,13 +40,23 @@ export const updateLilydleAnswer = functions.pubsub
     );
     // if new lilydle answer is different from old lilydle answer, update firestore
     if (isUpdated) {
-      await bucket
+      bucket
         .file("lilydle-answer.json")
         .save(JSON.stringify(newLilydleAnswer), {
           contentType: "application/json",
         })
-        .then(() => {
+        .then(async () => {
           functions.logger.log("update lilydle answer to firestore");
+          await axios.post(
+            "https://api.github.com/repos/ku-mok/lilydle/dispatches",
+            { event_type: "deploy" },
+            {
+              headers: {
+                Authorization: `token ${functions.config().github.token}`,
+              },
+            }
+          );
+          functions.logger.log("start to deploy lilydle");
         })
         .catch((error) => {
           functions.logger.log("update lilydle answer to firestore error");

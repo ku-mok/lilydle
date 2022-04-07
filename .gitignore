@@ -25,3 +25,4 @@ dist-ssr
 *.sw?
 coverage
 .firebase/hosting.ZGlzdA.cache
+functions/.runtimeconfig.json

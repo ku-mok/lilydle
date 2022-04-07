@@ -7,6 +7,8 @@ permissions:
 name: Deploy to Firebase Hosting on merge
 'on':
   push:
+    paths-ignore:
+      - "functions/**"
     branches:
       - master
 jobs:
