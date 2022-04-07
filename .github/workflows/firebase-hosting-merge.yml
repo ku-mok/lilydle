@@ -5,7 +5,9 @@ permissions:
   id-token: 'write'
 
 name: Deploy to Firebase Hosting on merge
-'on':
+on:
+  repository_dispatch:
+    types: [deploy]
   push:
     paths-ignore:
       - "functions/**"
