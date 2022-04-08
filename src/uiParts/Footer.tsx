@@ -31,8 +31,8 @@ const Footer = (props: { allAnswerCandidates: number }) => {
         <h2 className="text-3xl pb-4 mt-4">謝辞</h2>
         <p className="mb-2">
           正解の候補は
-          <a href="https://github.com/fvh-P/assaultlily-rdf">
-            アサルトリリィRDF
+          <a href="https://github.com/fvh-P/LuciaDB">
+            LuciaDB（旧：アサルトリリィRDF）
           </a>
           を元に作成されています。正解した時および６回で正解できなかった場合は、
           <a href="https://lemonade.lily.garden/">Lemonade</a>
