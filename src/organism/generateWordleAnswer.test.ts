@@ -6,7 +6,7 @@ it("generate another answer in another day", () => {
     {
       display: "初鹿野瑤",
       kana: "はつかのよう",
-      lemonadeUrl: "https://lily.fvhp.net/lily/Lily/Hatsukano-Yo",
+      lemonadeUrl: "https://luciadb.assaultlily.com/lily/Lily/Hatsukano-Yo",
     },
     {
       kana: "ぶりゅーなく",
@@ -115,7 +115,7 @@ it("generate the same answer in the same day", () => {
     {
       display: "初鹿野瑤",
       kana: "はつかのよう",
-      lemonadeUrl: "https://lily.fvhp.net/lily/Lily/Hatsukano-Yo",
+      lemonadeUrl: "https://luciadb.assaultlily.com/lily/Lily/Hatsukano-Yo",
     },
     {
       kana: "ばしゃんどれ",

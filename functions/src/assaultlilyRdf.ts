@@ -5,11 +5,11 @@ import { transformSparqlResponse } from "./transform";
 async function fetchAssaultLilyRdf(
   query: string
 ): Promise<SparqlReponse["results"]["bindings"]> {
-  const endpoint = "https://lily.fvhp.net/sparql";
+  const endpoint = "https://luciadb.assaultlily.com/sparql";
   const queryHeader = `
   PREFIX schema: <http://schema.org/>
   PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-  PREFIX lily: <https://lily.fvhp.net/rdf/IRIs/lily_schema.ttl#>
+  PREFIX lily: <https://luciadb.assaultlily.com/rdf/IRIs/lily_schema.ttl#>
   `;
 
   const response = await axios.get<SparqlReponse>(endpoint, {
