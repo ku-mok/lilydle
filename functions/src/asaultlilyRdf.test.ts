@@ -25,7 +25,8 @@ const sparqlResponse: SparqlReponse = {
         },
         class: {
           type: "uri",
-          value: "https://lily.fvhp.net/rdf/IRIs/lily_schema.ttl#Lily",
+          value:
+            "https://luciadb.assaultlily.com/rdf/IRIs/lily_schema.ttl#Lily",
         },
         nameeng: {
           type: "literal",
@@ -46,7 +47,8 @@ const sparqlResponse: SparqlReponse = {
         },
         class: {
           type: "uri",
-          value: "https://lily.fvhp.net/rdf/IRIs/lily_schema.ttl#Lily",
+          value:
+            "https://luciadb.assaultlily.com/rdf/IRIs/lily_schema.ttl#Lily",
         },
         nameeng: {
           type: "literal",
@@ -67,7 +69,8 @@ const sparqlResponse: SparqlReponse = {
         },
         class: {
           type: "uri",
-          value: "https://lily.fvhp.net/rdf/IRIs/lily_schema.ttl#Lily",
+          value:
+            "https://luciadb.assaultlily.com/rdf/IRIs/lily_schema.ttl#Lily",
         },
         nameeng: {
           type: "literal",
@@ -86,7 +89,7 @@ const lilydleAnswer = [
   {
     kana: "はつかのよう",
     display: "初鹿野瑤",
-    lemonadeUrl: "https://lily.fvhp.net/lily/Lily/Hatsukano-Yo",
+    lemonadeUrl: "https://luciadb.assaultlily.com/lily/Lily/Hatsukano-Yo",
   },
 ];
 transformSpy.mockReturnValue(lilydleAnswer);

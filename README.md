@@ -3,6 +3,13 @@
 アサルトリリィ版の Wordle です。https://lilydle-f1607.web.app/ にて公開しています。
 遊び方などはリンク先を参照ください。
 
+## ライセンス等
+
+![CC BY-NC-SA](https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png)
+
+Lilydleは ![LuciaDB](https://github.com/fvh-P/LuciaDB)のデータを活用して作成されています。
+[クリエイティブ・コモンズ 表示 - 非営利 - 継承 4.0 国際](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ja) ライセンスで利用できます。
+
 ## アーキテクチャ
 
 ![arch](./architecture.svg)
